@@ -1,0 +1,111 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "abilities_on_the_way_in",
+  "note": "A parade of passive abilities: Intimidate drops Attack on the way in, and Thick Fat, Sand Veil, Clear Body, Pressure and Suction Cups each take their turn on the field",
+  "p1": [
+    {
+      "ability": "intimidate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "rockslide",
+        "hiddenpower",
+        "protect",
+        "roar"
+      ],
+      "species": "salamence"
+    },
+    {
+      "ability": "thickfat",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "hiddenpower",
+        "protect"
+      ],
+      "species": "hariyama"
+    },
+    {
+      "ability": "clearbody",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rockslide",
+        "protect",
+        "hiddenpower"
+      ],
+      "species": "metagross"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "pressure",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "surf",
+        "icebeam",
+        "rest",
+        "roar"
+      ],
+      "species": "suicune"
+    },
+    {
+      "ability": "sandveil",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "hiddenpower",
+        "leechseed",
+        "spikes",
+        "protect"
+      ],
+      "species": "cacturne"
+    },
+    {
+      "ability": "suctioncups",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "recover",
+        "hiddenpower",
+        "rockslide",
+        "toxic"
+      ],
+      "species": "cradily"
+    }
+  ],
+  "turns": [
+    [
+      "move rockslide",
+      "move surf"
+    ],
+    [
+      "switch 2",
+      "switch 2"
+    ],
+    [
+      "move bodyslam",
+      "move hiddenpower"
+    ],
+    [
+      "switch 3",
+      "switch 3"
+    ],
+    [
+      "move rockslide",
+      "move recover"
+    ],
+    [
+      "move protect",
+      "move toxic"
+    ]
+  ]
+}

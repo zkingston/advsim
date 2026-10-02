@@ -1,0 +1,88 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "traps_and_transform",
+  "note": "Ditto copies what is across from it, Mean Look pins a Pokemon that an ability could have trapped anyway, and Liquid Ooze sits on the field with it",
+  "p1": [
+    {
+      "ability": "limber",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "transform"
+      ],
+      "species": "ditto"
+    },
+    {
+      "ability": "liquidooze",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "surf",
+        "hiddenpower",
+        "toxic",
+        "protect"
+      ],
+      "species": "tentacruel"
+    },
+    {
+      "ability": "arenatrap",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "hiddenpower",
+        "protect"
+      ],
+      "species": "dugtrio"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "meanlook",
+        "shadowball",
+        "painsplit",
+        "protect"
+      ],
+      "species": "misdreavus"
+    },
+    {
+      "ability": "magnetpull",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "thunderbolt",
+        "hiddenpower",
+        "protect",
+        "toxic"
+      ],
+      "species": "magneton"
+    }
+  ],
+  "turns": [
+    [
+      "move transform",
+      "move shadowball"
+    ],
+    [
+      "switch 2",
+      "move meanlook"
+    ],
+    [
+      "move surf",
+      "move painsplit"
+    ],
+    [
+      "move toxic",
+      "move shadowball"
+    ]
+  ]
+}

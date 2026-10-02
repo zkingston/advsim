@@ -1,0 +1,17 @@
+node_modules
+artifacts/*
+!artifacts/manifest.json
+!artifacts/dex_raw.json
+!artifacts/catalog.json
+traces/
+episodes/
+__pycache__/
+*.pyc
+.venv/
+bench/results/
+bench/microbench/tables.h
+.pytest_cache/
+web/dist/
+.claude/
+.ruff_cache/
+web/sprites/

@@ -1,0 +1,22 @@
+{
+  "force": {"accuracy": "hit", "crit": false, "damage_roll": "min"},
+  "name": "the_last_of_the_families",
+  "note": "Flail off a full bar, a Stick that wants a crit, Rough Skin taking its cut of a contact move, Aromatherapy clearing the team, and a Shedinja that only super-effective hits can touch while Arena Trap holds it there",
+  "p1": [
+    {"ability": "keeneye", "item": "stick", "level": 80, "moves": ["flail", "bodyslam", "protect", "hiddenpower"], "species": "farfetchd"},
+    {"ability": "naturalcure", "item": "leftovers", "level": 80, "moves": ["aromatherapy", "softboiled", "seismictoss", "toxic"], "species": "blissey"},
+    {"ability": "arenatrap", "item": "leftovers", "level": 80, "moves": ["earthquake", "rockslide", "protect", "hiddenpower"], "species": "dugtrio"}
+  ],
+  "p2": [
+    {"ability": "roughskin", "item": "leftovers", "level": 80, "moves": ["crunch", "surf", "protect", "hiddenpower"], "species": "sharpedo"},
+    {"ability": "shielddust", "item": "leftovers", "level": 80, "moves": ["toxic", "protect", "hiddenpower", "moonlight"], "species": "dustox"},
+    {"ability": "wonderguard", "item": "leftovers", "level": 80, "moves": ["shadowball", "protect", "toxic", "hiddenpower"], "species": "shedinja"}
+  ],
+  "turns": [
+    ["move flail", "move crunch"],
+    ["switch 2", "switch 2"],
+    ["move aromatherapy", "move toxic"],
+    ["switch 3", "switch 3"],
+    ["move earthquake", "move shadowball"]
+  ]
+}

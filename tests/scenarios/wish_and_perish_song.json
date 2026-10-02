@@ -1,0 +1,79 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "wish_and_perish_song",
+  "note": "A Wish lands on whoever holds the slot a turn later, Yawn puts its target under, and Perish Song counts both actives out",
+  "p1": [
+    {
+      "ability": "synchronize",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "wish",
+        "yawn",
+        "bodyslam",
+        "protect"
+      ],
+      "species": "umbreon"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "perishsong",
+        "shadowball",
+        "painsplit",
+        "protect"
+      ],
+      "species": "misdreavus"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move wish",
+      "move perishsong"
+    ],
+    [
+      "move yawn",
+      "move shadowball"
+    ],
+    [
+      "move bodyslam",
+      "move shadowball"
+    ],
+    [
+      "move protect",
+      "move protect"
+    ]
+  ]
+}

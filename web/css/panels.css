@@ -1,0 +1,132 @@
+/* Everything around the scene: the move menu, the record panel (log and settings) and the team,
+   as panels.js and settings.js draw them. */
+
+/* ---- the move menu: a row of four where the arena is wide, two by two otherwise; never 3 + 1 */
+.arena { container-type: inline-size; }
+#controls { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 6px; margin-top: 14px; padding-bottom: 8px; min-height: 60px; align-content: start; }
+@container (min-width: 620px) { #controls { grid-template-columns: repeat(4, 1fr); } }
+#controls button {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: left;
+  padding: 8px 10px 8px 12px; font-size: 15px; line-height: 1.5; border-radius: 8px;
+}
+.hover #controls button:not(:disabled):not(.readonly):hover { background: #eaf1fd; border-color: var(--accent); }
+#controls button:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+#controls button small { color: #5a6470; font-size: 12px; white-space: nowrap; }
+#controls button.readonly { cursor: default; }
+#controls .move { border-left: 8px solid var(--type, var(--accent)); }
+/* Type-chart effectiveness: a ring round the move, the multiplier in a tab on its bottom edge. */
+#controls .move.eff-good { box-shadow: 0 0 0 3px #1f9a52, 0 2px 0 var(--menu-edge); }
+#controls .move.eff-bad { box-shadow: 0 0 0 3px #d86a30, 0 2px 0 var(--menu-edge); }
+#controls .move.eff-none { box-shadow: 0 0 0 3px #7a828a, 0 2px 0 var(--menu-edge); opacity: .8; }
+.eff { position: absolute; right: 8px; bottom: -9px; z-index: 1; font: 700 11px/16px var(--sans); padding: 0 6px; border-radius: 8px; color: #fff; }
+.eff-good .eff { background: #1f9a52; } .eff-bad .eff { background: #d86a30; } .eff-none .eff { background: #7a828a; }
+/* The assist's percentage: a tab on the top edge, outside the text, so toggling it moves nothing. */
+.ai { position: absolute; top: -9px; right: 8px; z-index: 1; padding: 0 6px; border-radius: 8px; font: 700 11px/16px var(--sans); color: #fff; background: #2858b0; }
+.ai-top { outline: 3px solid #f8c030; outline-offset: -1px; }
+.pick { grid-column: 1 / -1; margin: 4px 0; font: 15px/1.6 var(--sans); color: var(--ink); }
+
+/* ---- the record panel: tabs for the log and the settings */
+.record { display: flex; flex-direction: column; height: 760px; padding: 0; overflow: hidden; }
+@media (max-width: 760px) { .record { height: 420px; } }
+.tabs { display: flex; gap: 4px; padding: 8px 8px 0; border-bottom: 3px solid var(--line); }
+.tabs button { border-radius: 6px 6px 0 0; box-shadow: none; border-bottom: none; font-size: 14px; }
+.tabs button[aria-selected="true"] { background: var(--frame); border-color: var(--frame); color: #fff; }
+#logpanel { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.replay { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; color: var(--muted); font: 12px var(--sans); }
+.replay input { flex: 1; min-width: 120px; }
+#replay { margin: 0; padding: 8px 12px; border-bottom: 2px solid var(--line); }
+/* The win-estimate sparkline: one 2px line, a dashed even-odds line, a dot at the slider's decision. */
+#spark { flex-basis: 100%; }
+.spark-head { display: flex; justify-content: space-between; color: var(--muted); }
+.spark-head b { color: var(--ink); font-weight: 600; }
+.spark-plot { position: relative; height: 44px; margin-top: 3px; cursor: pointer; }
+.spark-plot svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.spark-plot polyline { fill: none; stroke: var(--accent); stroke-width: 2px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.spark-plot .even { stroke: var(--line); stroke-width: 1px; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.spark-plot .mark { position: absolute; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 2px var(--panel); }
+/* Watching, a line per bot: p1 in the accent, p2 in orange, keyed in the head. */
+#spark { --p2line: #e07a2e; }
+.spark-plot polyline.s1 { stroke: var(--p2line); }
+.spark-plot .mark.s1 { background: var(--p2line); }
+.spark-head .keys { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+.spark-head .key i { display: inline-block; width: 12px; height: 3px; margin-right: 5px; border-radius: 2px; background: var(--accent); vertical-align: middle; }
+.spark-head .key.s1 i { background: var(--p2line); }
+#log, #botpanel, #settings { flex: 1; overflow-y: auto; padding: 10px 12px; }
+#log h3 { font: 14px var(--sans); text-transform: uppercase; color: var(--muted); margin: 12px 0 4px; }
+#log p { margin: 1px 0; }
+#log .dim { color: var(--muted); }
+#log .strong { font-weight: 700; }
+#settings { display: flex; flex-direction: column; gap: 14px; font: 15px/1.6 var(--sans); }
+#settings label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+#settings input[type=range] { width: 140px; }
+#tempval { display: inline-block; min-width: 3em; }
+#mctsopts { display: flex; flex-direction: column; gap: 10px; border: 2px solid var(--line); border-radius: 8px; padding: 8px 12px 12px; }
+#mctsopts legend { padding: 0 6px; }
+#mctsopts input[type=number] { width: 6.5em; font: inherit; padding: 4px 6px; border-radius: 6px; border: 2px solid var(--line); }
+#mctsopts button { align-self: flex-start; }
+/* The Bot panel (thinking.js): its options and its read of the other side as bars, and its
+   win chance per pairing as a table coloured orange (bad for it) through blue (good). */
+#botpanel { --good: #3f7fd8; --bad: #e07a2e; font: 13px/1.45 var(--sans); }
+#botpanel .type { font-size: 9px; padding: 1px 3px; letter-spacing: .03em; }  /* the team panel's short badges */
+.thought + .thought { margin-top: 18px; padding-top: 12px; border-top: 2px solid var(--line); }
+.thought h3 { margin: 0 0 4px; font-size: 15px; }
+.thought h4 { margin: 12px 0 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.thought p { margin: 4px 0; }
+.thought .note, #botpanel .empty { color: var(--muted); font-size: 12px; }
+.opts { width: 100%; table-layout: fixed; border-collapse: collapse; }
+.opts th { font-weight: 600; font-size: 11px; color: var(--muted); text-align: left; }
+.opts td { padding: 2px 6px 2px 0; white-space: nowrap; vertical-align: middle; }
+.opts :is(th, td):first-child { width: 45%; white-space: normal; }
+.opts .meter { display: flex; align-items: baseline; gap: 6px; }  /* the bar's bottom on the digits' baseline */
+.opts .bar { flex: 0 1 70px; min-width: 24px; height: 7px; border-radius: 4px; background: var(--stat-track); overflow: hidden; }
+.opts .bar i { display: block; height: 100%; border-radius: 4px; background: var(--accent); }
+/* At most six reply columns (thinking.js), laid out to the panel's width: it never scrolls sideways. */
+.matrix { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 2px; font-variant-numeric: tabular-nums; }
+.matrix th { font-weight: 600; font-size: 11px; text-align: left; padding: 2px 3px; vertical-align: middle; overflow-wrap: anywhere; }
+.matrix thead th { vertical-align: bottom; font-size: 9px; line-height: 1.3; padding: 2px 1px; }
+.matrix .nowrap { white-space: nowrap; }
+.matrix thead th:first-child { width: 22%; }
+.matrix td { padding: 4px 0; text-align: center; border-radius: 4px; font-size: 12px; }
+#linkbox { width: 100%; font: 12px var(--sans); padding: 6px; border-radius: 6px; border: 2px solid var(--line); }
+#aboutbtn { margin-top: auto; align-self: flex-start; }
+
+/* ---- the team, as the party screen; a card is a switch while that switch is legal */
+.team h2 { font: 16px var(--sans); margin: 0 0 10px; }
+#teamgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px 8px; padding-top: 6px; }
+.mate {
+  position: relative; display: flex; flex-direction: column; gap: 4px; padding: 8px 8px 24px; border-radius: 10px; color: var(--mate-ink);
+  background: var(--mate); border: 2px solid var(--mate-edge); font: 12px/1.6 var(--sans); container-type: inline-size;
+}
+.mate.active { background: var(--mate-on); border-color: var(--mate-on-edge); }
+.mate.fnt { filter: grayscale(1); opacity: .55; }
+.mate.can-switch { cursor: pointer; box-shadow: 0 2px 0 var(--mate-edge); }
+.mate.can-switch:focus-visible, .hover .mate.can-switch:hover { outline: 2px solid var(--accent); outline-offset: 1px; transform: translateY(-2px); }
+.mate.can-switch::after { content: 'SWITCH ▶'; position: absolute; right: 8px; bottom: 6px; font: 600 10px var(--sans); color: var(--accent); }
+.mate-head { display: flex; gap: 8px; align-items: center; }
+.mate-head img { width: 56px; height: 56px; image-rendering: pixelated; flex: none; }
+.mate-head > div { min-width: 0; flex: 1; }
+.mate .name { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mate .lv { color: var(--mate-muted); font-size: 12px; }
+.mate .types { display: flex; align-items: center; gap: 3px; margin: 3px 0; white-space: nowrap; }
+.mate .type, .mate .status { font-size: 9px; padding: 1px 3px; letter-spacing: .03em; }
+.mate .hprow { gap: 6px; margin: 4px 0 1px; }
+.mate .hprow .hpbar { min-width: 40px; }
+.mate .hptext { font-size: 12px; white-space: nowrap; }
+/* Item and ability: one per line on a compact card, side by side where there is room. */
+.meta { line-height: 1.45; }
+.meta > span { display: block; }
+.meta > .sep { display: none; }
+@container (min-width: 280px) { .meta > span { display: inline; } .meta > .sep { display: inline; } }
+/* A card's moves: one column of four, or two by two where the card is wide enough. */
+.moves { list-style: none; padding: 0; margin: 4px 0; display: grid; grid-template-columns: 1fr; column-gap: 10px; }
+@container (min-width: 280px) { .moves { grid-template-columns: repeat(2, 1fr); } }
+.moves li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.55; }
+.moves small { color: var(--mate-muted); font-size: 10px; }
+.moves .cat { width: 23px; height: 10px; vertical-align: 0; margin-right: 5px; }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px; border: 1px solid rgb(0 0 0 / .3); }
+/* Stats: the number over its name, on a bar of its size (panels.js's STAT_SCALE). */
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin-top: auto; padding-top: 4px; }
+.stat { position: relative; display: flex; flex-direction: column; align-items: center; padding: 3px 0 2px; border-radius: 4px; background: var(--stat-track); overflow: hidden; }
+.stat i { position: absolute; left: 0; right: 0; bottom: 0; background: var(--stat-bar); border-radius: 4px 4px 0 0; }
+.stat b { position: relative; font-size: 13px; }
+.stat span { position: relative; font-size: 9px; letter-spacing: .04em; color: var(--mate-muted); }

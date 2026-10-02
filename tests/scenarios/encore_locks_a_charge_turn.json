@@ -1,0 +1,75 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "encore_locks_a_charge_turn",
+  "note": "Solar Beam spends a turn charging, Encore pins its user to the move it just used, and Focus Punch loses its turn to a hit",
+  "p1": [
+    {
+      "ability": "chlorophyll",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "solarbeam",
+        "sleeppowder",
+        "hiddenpower",
+        "synthesis"
+      ],
+      "species": "vileplume"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "guts",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "encore",
+        "focuspunch",
+        "bodyslam",
+        "facade"
+      ],
+      "species": "heracross"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move solarbeam",
+      "move encore"
+    ],
+    [
+      "move solarbeam",
+      "move focuspunch"
+    ],
+    [
+      "move solarbeam",
+      "move facade"
+    ]
+  ]
+}

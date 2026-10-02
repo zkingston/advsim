@@ -1,0 +1,19 @@
+{
+  "force": {"accuracy": "hit", "crit": false, "damage_roll": "max", "secondary": 99},
+  "name": "white_herb_stays_on_a_fainted_holder",
+  "note": "Superpower's drop lands through selfDrops while the user still stands, then Rough Skin knocks it out at DamagingHit. The White Herb's Update comes after, and useItem refuses a Pokemon at 0 HP, so the herb stays",
+  "p1": [
+    {"ability": "cloudnine", "item": "whiteherb", "moves": ["substitute", "superpower", "raindance", "protect"], "species": "golduck"},
+    {"ability": "cloudnine", "item": "leftovers", "moves": ["surf", "raindance", "protect", "substitute"], "species": "golduck"}
+  ],
+  "p2": [
+    {"ability": "roughskin", "item": "leftovers", "moves": ["bodyslam", "curse", "rest", "earthquake"], "species": "snorlax"}
+  ],
+  "turns": [
+    ["move substitute", "move bodyslam"],
+    ["move substitute", "move bodyslam"],
+    ["move substitute", "move bodyslam"],
+    ["move substitute", "move curse"],
+    ["move superpower", "move curse"]
+  ]
+}

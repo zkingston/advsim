@@ -1,0 +1,48 @@
+[project]
+name = "advsim"
+version = "0.1.0"
+description = "GPU battle engine for Pokemon Showdown's [Gen 3] Random Battle, bit-exact with Showdown, for RL and search"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [{ name = "Zachary Kingston" }]
+keywords = ["pokemon-showdown", "reinforcement-learning", "nvidia-warp", "mcts", "gpu"]
+classifiers = [
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: POSIX :: Linux",
+    "Environment :: GPU :: NVIDIA CUDA",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "warp-lang>=1.17,<1.18",  # parity and build times are verified on 1.17
+    "numpy>=2.0",
+]
+
+[dependency-groups]
+bench = ["jax[cuda12]>=0.11; sys_platform == 'linux'"]
+dev = ["pytest>=8"]
+rl = [
+    "torch>=2.14.0",
+]
+
+[project.urls]
+Homepage = "https://zkingston.com/advsim/"
+Repository = "https://github.com/zkingston/advsim"
+
+[project.scripts]
+advsim = "advsim.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["advsim"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "oracle: runs Showdown through Node (needs node, `npm ci` in showdown/, and `advsim build`)",
+    "built: needs the artifacts `advsim build` writes",
+]

@@ -1,0 +1,75 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "explosion_takes_the_weather_suppressor",
+  "note": "Explosion kills a Cloud Nine holder, whose End event re-runs WeatherChange while Sand Stream's sandstorm is up",
+  "p1": [
+    {
+      "ability": "sandstream",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "rockslide",
+        "earthquake",
+        "crunch",
+        "roar"
+      ],
+      "species": "tyranitar"
+    },
+    {
+      "ability": "soundproof",
+      "item": "",
+      "level": 80,
+      "moves": [
+        "explosion",
+        "thunderbolt",
+        "raindance",
+        "hiddenpower"
+      ],
+      "species": "electrode"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "cloudnine",
+      "item": "",
+      "level": 5,
+      "moves": [
+        "surf",
+        "icebeam",
+        "rest",
+        "hiddenpower"
+      ],
+      "species": "golduck"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "switch 2",
+      "move surf"
+    ],
+    [
+      "move explosion",
+      "move surf"
+    ],
+    [
+      "switch 1",
+      "switch 2"
+    ]
+  ]
+}

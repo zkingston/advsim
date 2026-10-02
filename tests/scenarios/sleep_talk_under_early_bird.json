@@ -1,0 +1,80 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max",
+    "sleeptalk": 0
+  },
+  "name": "sleep_talk_under_early_bird",
+  "note": "Rest puts Houndoom under for two turns, Early Bird halves that, and Sleep Talk calls one of its other moves while it lasts",
+  "p1": [
+    {
+      "ability": "earlybird",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "rest",
+        "sleeptalk",
+        "crunch",
+        "fireblast"
+      ],
+      "species": "houndoom"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "effectspore",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "spore",
+        "leechseed",
+        "hiddenpower",
+        "protect"
+      ],
+      "species": "breloom"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move crunch",
+      "move hiddenpower"
+    ],
+    [
+      "move rest",
+      "move protect"
+    ],
+    [
+      "move sleeptalk",
+      "move hiddenpower"
+    ],
+    [
+      "move sleeptalk",
+      "move hiddenpower"
+    ]
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "Battle.durationCallback<Pokemon.addVolatile": {
+    "name": "volatile_duration",
+    "fn": "random",
+    "args": [
+      "[3,7]"
+    ],
+    "count": {
+      "random": 943,
+      "greedy": 252
+    }
+  },
+  "Battle.endTurn<Battle.turnLoop": {
+    "name": "quickclaw",
+    "fn": "randomChance",
+    "args": [
+      "[1,5]"
+    ],
+    "count": {
+      "random": 85111,
+      "greedy": 28674
+    }
+  },
+  "Battle.getRandomSwitchable<BattleActions.dragIn": {
+    "name": "drag_in",
+    "fn": "sample",
+    "args": [
+      "[5]",
+      "[4]",
+      "[1]",
+      "[3]",
+      "[2]"
+    ],
+    "count": {
+      "random": 243,
+      "greedy": 81
+    }
+  },
+  "Battle.randomizer<BattleActions.modifyDamage": {
+    "name": "damage_roll",
+    "fn": "random",
+    "args": [
+      "[16,null]"
+    ],
+    "count": {
+      "random": 45446,
+      "greedy": 34765
+    }
+  },
+  "Battle.speedSort<Battle.eachEvent": {
+    "name": "speedtie",
+    "fn": "shuffle",
+    "args": [
+      "[2,0,2]"
+    ],
+    "count": {
+      "random": 8530,
+      "greedy": 3652
+    }
+  },
+  "Battle.speedSort<Battle.fieldEvent": {
+    "name": "speedtie",
+    "fn": "shuffle",
+    "args": [
+      "[2,0,2]",
+      "[4,2,4]",
+      "[5,3,5]",
+      "[3,1,3]",
+      "[3,0,2]",
+      "[6,4,6]",
+      "[5,0,2]",
+      "[8,6,8]"
+    ],
+    "count": {
+      "random": 3297,
+      "greedy": 1196
+    }
+  },
+  "Battle.speedSort<Battle.runEvent": {
+    "name": "speedtie",
+    "fn": "shuffle",
+    "args": [
+      "[2,0,2]"
+    ],
+    "count": {
+      "random": 45,
+      "greedy": 17
+    }
+  },
+  "Battle.speedSort<BattleQueue.sort": {
+    "name": "speedtie",
+    "fn": "shuffle",
+    "args": [
+      "[2,0,2]",
+      "[4,0,2]",
+      "[4,2,4]"
+    ],
+    "count": {
+      "random": 812,
+      "greedy": 512
+    }
+  },
+  "BattleActions.getDamage<Battle.onTryPrimaryHit": {
+    "name": "crit",
+    "fn": "randomChance",
+    "args": [
+      "[1,16]",
+      "[1,8]",
+      "[1,4]"
+    ],
+    "count": {
+      "random": 970,
+      "greedy": 294
+    }
+  },
+  "BattleActions.getDamage<BattleActions.getSpreadDamage": {
+    "name": "crit",
+    "fn": "randomChance",
+    "args": [
+      "[1,16]",
+      "[1,8]",
+      "[1,4]"
+    ],
+    "count": {
+      "random": 44456,
+      "greedy": 34444
+    }
+  },
+  "BattleActions.secondaries<BattleActions.spreadMoveHit": {
+    "name": "secondary",
+    "fn": "random",
+    "args": [
+      "[100,null]"
+    ],
+    "count": {
+      "random": 18581,
+      "greedy": 16174
+    }
+  },
+  "BattleActions.selfDrops<BattleActions.spreadMoveHit": {
+    "name": "self_drop",
+    "fn": "random",
+    "args": [
+      "[100,null]"
+    ],
+    "count": {
+      "random": 656,
+      "greedy": 486
+    }
+  },
+  "BattleActions.tryMoveHit<BattleActions.useMoveInner": {
+    "name": "accuracy",
+    "fn": "randomChance",
+    "args": [
+      "[100,100]",
+      "[80,100]",
+      "[85,100]",
+      "[75,100]",
+      "[90,100]",
+      "[95,100]",
+      "[60,100]",
+      "[110,100]"
+    ],
+    "count": {
+      "random": 63961,
+      "greedy": 43420
+    }
+  },
+  "BattleQueue.insertChoice<BattleActions.switchIn": {
+    "name": "switchin_tie",
+    "fn": "random",
+    "args": [
+      "[0,2]"
+    ],
+    "count": {
+      "random": 10,
+      "greedy": 17
+    }
+  },
+  "Side.randomFoe<Battle.onStart": {
+    "name": "trace_target",
+    "fn": "sample",
+    "args": [
+      "[1]"
+    ],
+    "count": {
+      "random": 745,
+      "greedy": 120
+    }
+  },
+  "attract:Battle.onBeforeMove<Battle.runEvent": {
+    "name": "attract_beforemove",
+    "fn": "randomChance",
+    "args": [
+      "[1,2]"
+    ],
+    "count": {
+      "random": 27,
+      "greedy": 15
+    }
+  },
+  "confusion:Battle.onBeforeMove<Battle.runEvent": {
+    "name": "confusion_check",
+    "fn": "randomChance",
+    "args": [
+      "[1,2]"
+    ],
+    "count": {
+      "random": 32,
+      "greedy": 55
+    }
+  },
+  "confusion:Battle.onStart<Battle.singleEvent": {
+    "name": "confusion_start",
+    "fn": "random",
+    "args": [
+      "[2,6]"
+    ],
+    "count": {
+      "random": 26,
+      "greedy": 25
+    }
+  },
+  "cutecharm:Battle.onDamagingHit<Battle.runEvent": {
+    "name": "cutecharm_damaginghit",
+    "fn": "randomChance",
+    "args": [
+      "[1,3]"
+    ],
+    "count": {
+      "random": 239,
+      "greedy": 151
+    }
+  },
+  "effectspore:Battle.onDamagingHit<Battle.runEvent": {
+    "name": "effectspore_damaginghit",
+    "fn": "randomChance",
+    "args": [
+      "[1,10]",
+      "[3]"
+    ],
+    "count": {
+      "random": 80,
+      "greedy": 58
+    }
+  },
+  "flamebody:Battle.onDamagingHit<Battle.runEvent": {
+    "name": "flamebody_damaginghit",
+    "fn": "randomChance",
+    "args": [
+      "[1,3]"
+    ],
+    "count": {
+      "random": 103,
+      "greedy": 71
+    }
+  },
+  "frz:Battle.onBeforeMove<Battle.runEvent": {
+    "name": "thaw",
+    "fn": "randomChance",
+    "args": [
+      "[1,5]"
+    ],
+    "count": {
+      "random": 625,
+      "greedy": 429
+    }
+  },
+  "par:Battle.onBeforeMove<Battle.runEvent": {
+    "name": "par_check",
+    "fn": "randomChance",
+    "args": [
+      "[1,4]"
+    ],
+    "count": {
+      "random": 9011,
+      "greedy": 1702
+    }
+  },
+  "poisonpoint:Battle.onDamagingHit<Battle.runEvent": {
+    "name": "poisonpoint_damaginghit",
+    "fn": "randomChance",
+    "args": [
+      "[1,3]"
+    ],
+    "count": {
+      "random": 110,
+      "greedy": 89
+    }
+  },
+  "shedskin:Battle.onResidual<Battle.singleEvent": {
+    "name": "shedskin_residual",
+    "fn": "randomChance",
+    "args": [
+      "[33,100]"
+    ],
+    "count": {
+      "random": 31,
+      "greedy": 6
+    }
+  },
+  "sleeptalk:Battle.onHit<Battle.singleEvent": {
+    "name": "sleeptalk",
+    "fn": "sample",
+    "args": [
+      "[3]"
+    ],
+    "count": {
+      "random": 880,
+      "greedy": 67
+    }
+  },
+  "slp:Battle.onStart<Battle.singleEvent": {
+    "name": "sleep_turns",
+    "fn": "random",
+    "args": [
+      "[2,6]"
+    ],
+    "count": {
+      "random": 2930,
+      "greedy": 313
+    }
+  },
+  "stall:Battle.onStallMove<Battle.runEvent": {
+    "name": "stall_stallmove",
+    "fn": "randomChance",
+    "args": [
+      "[1,2]",
+      "[1,4]",
+      "[1,8]"
+    ],
+    "count": {
+      "random": 248,
+      "greedy": 167
+    }
+  },
+  "static:Battle.onDamagingHit<Battle.runEvent": {
+    "name": "static_damaginghit",
+    "fn": "randomChance",
+    "args": [
+      "[1,3]"
+    ],
+    "count": {
+      "random": 199,
+      "greedy": 114
+    }
+  }
+}

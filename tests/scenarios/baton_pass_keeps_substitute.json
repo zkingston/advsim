@@ -1,0 +1,70 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false
+  },
+  "name": "baton_pass_keeps_substitute",
+  "note": "Ninjask passes a Substitute and +2 Attack to Marowak, which arrives behind the sub and swings at it",
+  "p1": [
+    {
+      "ability": "speedboost",
+      "item": "leftovers",
+      "level": 84,
+      "moves": [
+        "substitute",
+        "batonpass",
+        "swordsdance",
+        "protect"
+      ],
+      "species": "ninjask"
+    },
+    {
+      "ability": "rockhead",
+      "item": "thickclub",
+      "level": 86,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "doubleedge",
+        "swordsdance"
+      ],
+      "species": "marowak"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "naturalcure",
+      "item": "leftovers",
+      "level": 79,
+      "moves": [
+        "softboiled",
+        "seismictoss",
+        "toxic",
+        "aromatherapy"
+      ],
+      "species": "blissey"
+    }
+  ],
+  "turns": [
+    [
+      "move substitute",
+      "move softboiled"
+    ],
+    [
+      "move swordsdance",
+      "move softboiled"
+    ],
+    [
+      "move batonpass",
+      "move softboiled"
+    ],
+    [
+      "switch 2",
+      "pass"
+    ],
+    [
+      "move earthquake",
+      "move seismictoss"
+    ]
+  ]
+}

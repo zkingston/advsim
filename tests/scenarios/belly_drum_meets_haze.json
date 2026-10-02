@@ -1,0 +1,75 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "belly_drum_meets_haze",
+  "note": "Belly Drum spends half the HP for +6, Haze wipes it the same turn, and the Salac Berry fires at a quarter",
+  "p1": [
+    {
+      "ability": "immunity",
+      "item": "salacberry",
+      "level": 80,
+      "moves": [
+        "bellydrum",
+        "bodyslam",
+        "rest",
+        "protect"
+      ],
+      "species": "snorlax"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "haze",
+        "sludgebomb",
+        "painsplit",
+        "willowisp"
+      ],
+      "species": "weezing"
+    },
+    {
+      "ability": "naturalcure",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "softboiled",
+        "seismictoss",
+        "toxic",
+        "aromatherapy"
+      ],
+      "species": "blissey"
+    }
+  ],
+  "turns": [
+    [
+      "move bellydrum",
+      "move haze"
+    ],
+    [
+      "move bellydrum",
+      "move sludgebomb"
+    ],
+    [
+      "move bodyslam",
+      "move willowisp"
+    ]
+  ]
+}

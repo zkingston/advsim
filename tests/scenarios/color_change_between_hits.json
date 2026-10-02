@@ -1,0 +1,16 @@
+{
+  "force": {"accuracy": "hit", "crit": false, "damage_roll": "max"},
+  "name": "color_change_between_hits",
+  "note": "Gen 3 runs a multi-hit move's AfterMoveSecondary after every hit. A Thunderbolt makes Kecleon Electric, so Bonemerang's first hit is super effective; Color Change then turns it Ground and the second hit is neutral",
+  "p1": [
+    {"ability": "rockhead", "item": "leftovers", "moves": ["bonemerang", "thunderbolt", "rockslide", "protect"], "species": "marowak"}
+  ],
+  "p2": [
+    {"ability": "colorchange", "item": "leftovers", "moves": ["return", "protect", "shadowball", "icebeam"], "species": "kecleon"}
+  ],
+  "turns": [
+    ["move thunderbolt", "move protect"],
+    ["move thunderbolt", "move return"],
+    ["move bonemerang", "move return"]
+  ]
+}

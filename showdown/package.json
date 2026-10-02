@@ -1,0 +1,14 @@
+{
+  "name": "advsim-showdown",
+  "private": true,
+  "description": "Showdown oracle scripts for advsim (Gen 3 Random Battle)",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "dependencies": {
+    "pokemon-showdown": "0.11.11"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}

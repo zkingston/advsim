@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdvSim</title>
+<link rel="stylesheet" href="dist/app.css">
+<!-- The data the first draw needs, fetched alongside the simulator rather than after it,
+     and the MCTS worker's script, whose stamped URL players.js reads from here. -->
+<link rel="preload" href="data/vocab.json" as="fetch" crossorigin>
+<link rel="preload" href="data/text.json" as="fetch" crossorigin>
+<link rel="preload" href="models/index.json" as="fetch" crossorigin>
+<link rel="prefetch" href="dist/worker.js">
+</head>
+<body>
+<header>
+  <div class="bar">
+    <button id="new">New battle</button>
+    <button id="watch" class="secondary">Watch bot vs bot</button>
+    <label><input type="checkbox" id="assist"> AI assist</label>
+    <span id="seed"></span>
+  </div>
+</header>
+<main>
+  <div class="left">
+    <section class="arena">
+      <div class="scene">
+        <div class="stage">
+          <div id="weather" aria-hidden="true"></div>
+          <div id="foe" class="side"></div>
+          <div id="own" class="side"></div>
+          <div id="banner" aria-hidden="true"></div>
+        </div>
+        <div id="result" hidden></div>
+      </div>
+      <div class="dialog"><p id="say"></p><span id="fieldinfo"></span><button id="pause" type="button" hidden>Pause</button></div>
+      <div id="controls"></div>
+    </section>
+    <section class="team">
+      <h2 id="teamlabel">Your team</h2>
+      <div id="teamgrid"></div>
+    </section>
+  </div>
+  <aside class="record">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-log" aria-controls="logpanel" aria-selected="true">Battle log</button>
+      <button role="tab" id="tab-bot" aria-controls="botpanel" aria-selected="false">Bot</button>
+      <button role="tab" id="tab-settings" aria-controls="settings" aria-selected="false">Settings</button>
+    </div>
+    <!-- The decision slider and the win estimate, over the log and the bot panel alike. -->
+    <div class="replay" id="replay">
+      <label for="scrub">Decision</label>
+      <input id="scrub" type="range" min="0" max="0" value="0">
+      <div id="spark" hidden></div>
+    </div>
+    <div id="logpanel" role="tabpanel" aria-labelledby="tab-log">
+      <div id="log" aria-live="polite"></div>
+    </div>
+    <div id="botpanel" role="tabpanel" aria-labelledby="tab-bot" hidden></div>
+    <div id="settings" role="tabpanel" aria-labelledby="tab-settings" hidden>
+      <label>Opponent <select id="opponent"></select></label>
+      <label id="templabel">Temperature <input id="temp" type="range" min="0" max="2" step="0.05" value="0.25"> <output id="tempval">0.25</output></label>
+      <fieldset id="mctsopts" hidden>
+        <legend>MCTS</legend>
+        <label title="Descents (tree walks) per decision, split across the workers">Descents <input name="descents" type="number" min="16" max="8192" step="16"></label>
+        <label title="Stop searching after this long even if the descents are not done">Time limit (s) <input name="seconds" type="number" min="0.2" max="30" step="0.1"></label>
+        <label title="Longest joint-action path a descent plays before the network scores it">Depth <input name="depth" type="number" min="1" max="12" step="1"></label>
+        <label title="Share of the network's prior mixed into each node's sampling (the engine's GAMMA)">Exploration <input name="gamma" type="number" min="0" max="1" step="0.01"></label>
+        <label title="Never try an action whose prior is under this share of the node's best (0 tries every legal action)">Prune <input name="prune" type="number" min="0" max="0.5" step="0.01"></label>
+        <label title="What is played: the root equilibrium, or the equilibrium mixed with the network's policy">Final move <select name="final"><option value="mix">mix</option><option value="eq">equilibrium</option></select></label>
+        <label title="Parallel searches; more is faster on a many-core machine">Workers <input name="workers" type="number" min="1" max="16" step="1"></label>
+        <button id="mctsreset" type="button">Defaults</button>
+      </fieldset>
+      <button id="copylink" title="A link that replays this battle, choice for choice">Copy replay link</button>
+      <input id="linkbox" readonly hidden aria-label="Replay link">
+      <label>Animation <select id="speed"><option value="normal">normal</option><option value="fast">fast</option><option value="off">off</option></select></label>
+      <button id="aboutbtn" type="button">About</button>
+    </div>
+  </aside>
+</main>
+<nav class="apptabs" role="tablist" aria-label="Views">
+  <button role="tab" data-tab="battle" aria-selected="true">Battle</button>
+  <button role="tab" data-tab="team" aria-selected="false">Team</button>
+  <button role="tab" data-tab="log" aria-selected="false">Log</button>
+  <button role="tab" data-tab="bot" aria-selected="false">Bot</button>
+  <button role="tab" data-tab="settings" aria-selected="false">Settings</button>
+</nav>
+<dialog id="about">
+  <h2>AdvSim</h2>
+  <p>Pokémon Showdown's [Gen 3] Random Battle, played in your browser against AI trained with a massively parallel GPU battle engine built to exactly match Showdown's simulator.</p>
+  <ul>
+    <li><b>MCTS</b>: a Monte Carlo tree search guided by the PPO network.</li>
+    <li><b>PPO</b>: a neural network trained with proximal policy optimization on the engine with self play.</li>
+    <li><b>Emerald-style AI</b>: the strongest-looking move each turn, with Pokémon Emerald's logic for replacements.</li>
+    <li><b>Random</b>: any legal choice.</li>
+  </ul>
+  <p>Everything runs on your device! The AI is also not cheating, it only guesses based upon what it has seen of your team.</p>
+  <h3>Credits</h3>
+  <p>Battle simulator, game data, and move, ability and item text: <a href="https://pokemonshowdown.com" target="_blank" rel="noopener">Pokémon Showdown</a> 0.11.11 by Guangcong Luo and contributors (MIT License). Sprites: the games', from Showdown's sprite server.</p>
+  <p>Pokémon and all related names and images are © Nintendo, Game Freak and Creatures Inc. This is a non-commercial fan project, not affiliated with or endorsed by them.</p>
+  <p>Made by <a href="https://zkingston.com" target="_blank" rel="noopener">Zachary Kingston</a> (<a href="mailto:zkingston@purdue.edu">zkingston@purdue.edu</a>) with <a href="https://claude.com" target="_blank" rel="noopener">Claude</a>.</p>
+  <form method="dialog"><button autofocus>Close</button></form>
+</dialog>
+<p id="loading">Loading the simulator and network…</p>
+<script>
+  { // A file that failed to load leaves the page here: say so instead of loading forever.
+    const failed = (err) => { const p = document.getElementById('loading'); if (!p.hidden) p.textContent = `The page failed to load: ${err}`; };
+    addEventListener('error', (e) => failed(e.error || e.message));
+    addEventListener('unhandledrejection', (e) => failed(e.reason));
+  }
+</script>
+<script src="dist/showdown.js"></script>
+<script type="module" src="dist/app.js"></script>
+</body>
+</html>

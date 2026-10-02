@@ -1,0 +1,119 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "a_faint_on_the_way_in_cancels_the_other",
+  "note": "Both sides replace at once and Spikes kill the first one in; gen 3 faintMessages cancels every active's queued action, so the other side's Pokemon is on the field having never met the hazards",
+  "p1": [
+    {
+      "ability": "soundproof",
+      "item": "",
+      "level": 80,
+      "moves": [
+        "explosion",
+        "spikes",
+        "thunderbolt",
+        "hiddenpower"
+      ],
+      "species": "electrode"
+    },
+    {
+      "ability": "voltabsorb",
+      "item": "",
+      "level": 80,
+      "moves": [
+        "thunderbolt",
+        "substitute",
+        "batonpass",
+        "hiddenpower"
+      ],
+      "species": "jolteon"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "naturalcure",
+      "item": "",
+      "level": 60,
+      "moves": [
+        "spikes",
+        "recover",
+        "surf",
+        "icebeam"
+      ],
+      "species": "starmie"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "turns": [
+    [
+      "move spikes",
+      "move spikes"
+    ],
+    [
+      "move spikes",
+      "move spikes"
+    ],
+    [
+      "move spikes",
+      "move spikes"
+    ],
+    [
+      "switch 2",
+      "move surf"
+    ],
+    [
+      "switch 1",
+      "move recover"
+    ],
+    [
+      "switch 2",
+      "move surf"
+    ],
+    [
+      "switch 1",
+      "move recover"
+    ],
+    [
+      "move explosion",
+      "move recover"
+    ],
+    [
+      "switch 2",
+      "switch 2"
+    ],
+    [
+      "switch 3",
+      "pass"
+    ],
+    [
+      "move protect",
+      "move bodyslam"
+    ]
+  ]
+}

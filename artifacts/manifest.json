@@ -1,0 +1,20 @@
+{
+  "dex": {
+    "arrays": 56,
+    "sha256": "20ff8203d91f992611ebe07aa874cf55d45dfb7c0ea8df40d6e8225431095da7"
+  },
+  "ids": {
+    "abilities": 72,
+    "conditions": 25,
+    "items": 14,
+    "moves": 115,
+    "sha256": "e679f2f075e3a68d172f08f86440836b865441422567dd4e40b9c509d83cb6b7",
+    "species": 248
+  },
+  "pool": {
+    "sha256": "99f98e759feede410c374fc74ee73bfb39efebd6b9992f54b70bc62b4b1f46eb",
+    "teams": 1000000
+  },
+  "schema": 1,
+  "showdown": "0.11.11"
+}

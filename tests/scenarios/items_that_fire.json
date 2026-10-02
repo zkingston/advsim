@@ -1,0 +1,75 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "min"
+  },
+  "name": "items_that_fire",
+  "note": "Pure Power doubles Attack and a Twisted Spoon adds a tenth to Psychic, while the Lum Berry eats the Toxic it was held for and the second one sticks",
+  "p1": [
+    {
+      "ability": "purepower",
+      "item": "twistedspoon",
+      "level": 80,
+      "moves": [
+        "psychic",
+        "bodyslam",
+        "rest",
+        "protect"
+      ],
+      "species": "medicham"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "blaze",
+      "item": "lumberry",
+      "level": 80,
+      "moves": [
+        "fireblast",
+        "bodyslam",
+        "toxic",
+        "protect"
+      ],
+      "species": "blaziken"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move psychic",
+      "move toxic"
+    ],
+    [
+      "move protect",
+      "move protect"
+    ],
+    [
+      "move rest",
+      "move toxic"
+    ]
+  ]
+}

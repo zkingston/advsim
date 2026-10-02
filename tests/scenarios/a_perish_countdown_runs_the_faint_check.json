@@ -1,0 +1,18 @@
+{
+  "force": {"stall_stallmove": "yes"},
+  "name": "a_perish_countdown_runs_the_faint_check",
+  "note": "Perish Song ends on one side's last Pokemon and only counts down on the other. The ending one queues its faint and skips the check; the one that counts down runs its callback and then the faint check, which ends the battle before the stall volatile behind it can run out",
+  "p1": [
+    {"ability": "levitate", "item": "leftovers", "moves": ["perishsong", "shadowball", "painsplit", "protect"], "species": "misdreavus"}
+  ],
+  "p2": [
+    {"ability": "naturalcure", "item": "leftovers", "moves": ["softboiled", "protect", "toxic", "seismictoss"], "species": "blissey"},
+    {"ability": "owntempo", "item": "leftovers", "moves": ["protect", "bodyslam", "earthquake", "swordsdance"], "species": "lickitung"}
+  ],
+  "turns": [
+    ["move perishsong", "move softboiled"],
+    ["move perishsong", "switch 2"],
+    ["move perishsong", "move protect"],
+    ["move perishsong", "move protect"]
+  ]
+}

@@ -1,0 +1,59 @@
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: showdown/package-lock.json
+      - run: npm ci --omit=optional
+        working-directory: showdown
+      # The sprites are game images, kept out of the repository: fetched from
+      # Showdown's sprite server, once per species list.
+      - uses: actions/cache@v4
+        with:
+          path: web/sprites
+          key: sprites-${{ hashFiles('web/data/vocab.json', 'showdown/fetch_sprites.js') }}
+      - run: test -d web/sprites/gen3 || node showdown/fetch_sprites.js
+      - run: node showdown/bundle.js
+      - run: node showdown/check_bundle.js 50
+      # Pages caches for 10 minutes: stamp each script and stylesheet index.html names
+      # with a hash of its contents, so a deploy never mixes old and new files and a
+      # file that did not change stays cached. The page's modules are bundled into
+      # dist/, and players.js reads the worker's and the simulator's URLs from here.
+      - run: |
+          for f in $(grep -oE '(href|src)="[^"?]+\.(css|js)"' web/index.html | sed -E 's/.*="([^"]+)"/\1/' | sort -u); do
+            h=$(sha256sum "web/$f" | cut -c1-12)
+            sed -i "s|=\"$f\"|=\"$f?v=$h\"|g" web/index.html
+          done
+          grep -oE '"[^"]+\?v=[0-9a-f]{12}"' web/index.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

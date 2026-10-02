@@ -1,0 +1,107 @@
+/* ---- phones, and tablets held upright: one screen, no page scroll. Battle, Team, Log and
+   Settings are tabs along the top (settings.js's setTab, whose media query is this one), and the
+   header's controls sit in Settings. */
+.apptabs { display: none; }
+@media (max-width: 900px), (orientation: landscape) and (max-height: 500px) {
+  html, body { height: 100%; overflow: hidden; }
+  body { display: flex; flex-direction: column; height: 100dvh; padding: 0 8px 8px; }
+  header { display: none; }
+  main { flex: 1; min-height: 0; display: block; margin: 0; }
+  .left { display: contents; }
+  .arena, .team, .record { height: 100%; overflow-y: auto; padding: 8px; }
+  body:not([data-tab="battle"]) .arena, body:not([data-tab="team"]) .team,
+  body:not([data-tab="log"]):not([data-tab="bot"]):not([data-tab="settings"]) .record { display: none; }
+  .record { padding: 0; }
+  .record .tabs, .team h2 { display: none; }
+  #settings .bar { flex-direction: column; align-items: stretch; gap: 10px; margin: 0; font-size: 15px; }
+  .apptabs {
+    order: -1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; flex: none;
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 0 6px;
+  }
+  .apptabs button { padding: 8px 4px; font-size: 14px; box-shadow: none; }
+  .apptabs button[aria-selected="true"] { background: var(--frame); border-color: var(--frame); color: #fff; }
+
+  .dialog { margin-top: 6px; }
+  #say { min-height: 2.6em; padding: 6px 10px; font-size: 15px; }
+  #fieldinfo { font-size: 11px; }
+  #controls { gap: 14px 6px; margin-top: 14px; min-height: 0; }
+  #controls button { padding: 6px 8px 6px 12px; font-size: 14px; }
+
+  /* The team: all six cards on the screen at once, two by three, rows sized to fit. */
+  .team { display: flex; flex-direction: column; overflow: hidden; }
+  #teamgrid { flex: 1; min-height: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 14px 6px; padding-top: 8px; }
+  /* A card is three rows: the header, the moves, the stats pinned to the bottom. Only the
+     moves give way, so on a short screen the stats still sit inside the card. */
+  .mate { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; grid-template-columns: minmax(0, 1fr);
+    min-height: 0; padding: 6px; gap: 2px; font-size: 11px; line-height: 1.35; }
+  .moves { overflow: hidden; margin: 2px 0; align-content: start; grid-auto-rows: min-content; }  /* rows keep their height, so an overflow shows and fitTeam sees it */
+  .stats { margin-top: 0; padding-top: 2px; }
+  .mate .name { font-size: 13px; }
+  .mate .lv, .mate .hptext { font-size: 11px; }
+  .mate .types { margin: 1px 0; }
+  .mate-head { align-items: flex-start; gap: 6px; }
+  .mate-head img { width: 40px; height: 40px; }
+  .stat { padding: 0; line-height: 1.2; }
+  .stat b { font-size: 11px; }
+  .stat span { font-size: 8px; }
+  .moves li { line-height: 1.4; }
+  .mate.can-switch { border-color: var(--accent); }
+  .mate.can-switch::after { display: none; }  /* the accent border says it; the space is the stats' */
+}
+/* A short card (a small phone, or its browser bars showing): panels.js's fitTeam measures it
+   and lists the moves two by two (.tight), then puts the item and ability on one line (.tighter). */
+.mate.tight .moves { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mate.tighter .meta > span, .mate.tighter .meta > .sep { display: inline; }
+.mate.tighter .meta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mate.tighter .moves li { line-height: 1.2; }
+.mate.tighter .mate-head .types { margin: 0; }
+.mate.tighter .mate-head .hprow { margin: 1px 0 0; }
+/* Sideways: the scene takes the left two thirds at nearly the screen's height (in svh, which
+   a collapsing address bar does not change), the dialog and the moves the right third. */
+@media (orientation: landscape) and (max-height: 500px) {
+  body { padding: 0 10px 6px; }
+  .arena { padding: 6px; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); grid-template-rows: auto 1fr;
+    column-gap: 12px; align-items: start; }
+  .scene { grid-column: 1; grid-row: 1 / span 2; justify-self: center; width: min(100%, calc((100svh - 66px) * 600 / 380)); }
+  .dialog { grid-column: 2; grid-row: 1; margin-top: 0; }
+  #say { min-height: 2.7em; padding: 4px 8px; font-size: 12px; line-height: 1.3; }
+  #fieldinfo { font-size: 10px; padding-top: 2px; }
+  /* Two by two: with a phone's browser bars showing, the column can be under 200px tall. */
+  .arena #controls { grid-column: 2; grid-row: 2; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 12px; gap: 14px 6px; }
+  #controls button { padding: 3px 6px 4px 8px; font-size: 12px; line-height: 1.25; gap: 1px; }
+  #controls button > :first-child, #controls button { overflow-wrap: anywhere; }
+  #controls button small { font-size: 10px; white-space: nowrap; }
+  #controls .move { border-left-width: 5px; }
+  .cat { width: 20px; height: 9px; }
+  .apptabs { padding: calc(4px + env(safe-area-inset-top, 0px)) 0 4px; }
+  .apptabs button { padding: 5px 4px; }
+  #teamgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .moves { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .meta > span, .meta > .sep { display: inline; }
+  .meta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Two rows of cards share 390px: each stat on one line, number then name. */
+  .stat { flex-direction: row; justify-content: center; align-items: baseline; gap: 3px; padding: 2px 0; }
+  .mate-head img { width: 36px; height: 36px; }
+  .mate .types { margin: 0; }
+  .mate .hprow { margin: 2px 0 0; }
+}
+
+/* Upright phones and tablets: a squarer stage and bigger sprites, so the Pokemon are not
+   shrunk with a wide stage into a narrow screen. */
+@media (max-width: 900px) and (orientation: portrait) {
+  .scene { --sh: 500; --sprite: 215px; }
+}
+
+/* Sideways with the browser's bars showing (under 320px tall): two rows of cards leave none
+   room for the moves, so the team is one row of six, which still fits without scrolling. */
+@media (orientation: landscape) and (max-height: 320px) {
+  #teamgrid { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); gap: 6px; }
+  .moves { grid-template-columns: 1fr; }
+  .mate .name { font-size: 12px; }
+  .mate-head { gap: 4px; }
+  .mate-head img { width: 28px; height: 28px; }
+  .mate .hptext { font-size: 10px; }
+  .stat { flex-direction: column; gap: 0; }
+  .stat b { font-size: 10px; }
+  .stat span { font-size: 7px; }
+}

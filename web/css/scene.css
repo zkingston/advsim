@@ -1,0 +1,156 @@
+/* The battle scene: a fixed 600x380 stage (scene.js scales it), the two sides, the weather and
+   field effects, the HP boxes, the dialog box, the per-event animations and the end screen. */
+
+/* ---- the scene: its colors come from setTerrain (scene.js). Everything in it is laid
+   out on a 600x380 stage that scene.js scales to the scene's width, like a game screen. */
+.scene {
+  --sky1: #f8f8d0; --sky2: #d8f0b8; --ground: #c0e098; --plat: #b8d890; --rim: #88b068;
+  --sw: 600; --sh: 380; --sprite: 156px;  /* the stage's design size; taller on an upright phone */
+  position: relative; aspect-ratio: var(--sw) / var(--sh); border-radius: 8px; overflow: hidden;
+  border: 3px solid var(--box-edge); background: linear-gradient(var(--sky2), var(--ground) 55%);
+}
+.stage { position: absolute; left: 0; top: 0; width: calc(var(--sw) * 1px); height: calc(var(--sh) * 1px); transform-origin: 0 0; }
+.side { position: absolute; z-index: 1; left: 0; right: 0; display: flex; flex-direction: column; gap: 4px; padding: 10px 14px; }
+#foe { top: 0; }
+#own { bottom: 0; padding-bottom: 0; }
+.card { display: flex; align-items: flex-end; gap: 8px; }
+#foe .card { flex-direction: row-reverse; align-items: flex-start; }
+.spritebox { position: relative; isolation: isolate; width: var(--sprite); height: var(--sprite); flex: none; }
+#foe .spritebox { margin-left: auto; margin-right: 9%; margin-top: 22px; }
+#own .spritebox { margin-left: 7%; }
+/* The platform under each sprite, centred on the box's bottom edge, where scene.js's
+   ground() puts the Pokemon's feet: the foe stands on it, yours meets the scene's edge. */
+.spritebox::before {
+  content: ''; position: absolute; z-index: -1; left: -40%; width: 180%; height: 24%; bottom: -12%;
+  border-radius: 50%; background: radial-gradient(ellipse at 50% 45%, var(--plat) 0 58%, var(--rim) 60% 100%);
+}
+#own .spritebox::before { bottom: -18%; height: 36%; left: -55%; width: 210%; }
+.sprite { display: block; width: 100%; height: 100%; object-fit: contain; object-position: bottom; image-rendering: pixelated; transition: opacity .5s, transform .5s; }
+/* The idle bob at the lowest specificity, so every one-off animation (.sprite.recall, .enter,
+   .hit, ...) wins over it: at #own's weight it silently overrode them all on your side. */
+:where(#own) .sprite { animation: bob 2.4s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(2px); } }
+
+/* ---- field effects: weather behind the Pokemon, Spikes on a side's platform, the Substitute doll */
+#weather { position: absolute; inset: 0; pointer-events: none; }
+#weather.wx-sun {
+  background: radial-gradient(circle at 88% -12%, rgb(255 238 150 / .8), transparent 58%),
+    repeating-conic-gradient(from 190deg at 88% -12%, rgb(255 242 175 / .2) 0 3deg, transparent 3deg 11deg);
+  animation: sun 2.6s ease-in-out infinite alternate;
+}
+@keyframes sun { from { opacity: .65; } to { opacity: 1; } }
+/* Rain: short drops on two tiles, near and far, each falling exactly one tile per loop so it never jumps. */
+#weather.wx-rain {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='120'%3E%3Cg stroke='%23c4d8f4' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 8l-3 16M44 30l-3 16M27 66l-3 16M52 92l-3 16M6 100l-3 16'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='80'%3E%3Cg stroke='%23a8c0e4' stroke-width='1.2' stroke-linecap='round' opacity='.8'%3E%3Cpath d='M8 4l-2 10M30 26l-2 10M18 50l-2 10M36 66l-2 10'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(rgb(40 60 110 / .26), rgb(40 60 110 / .1));
+  background-size: 60px 120px, 40px 80px, auto;
+  animation: rain .45s linear infinite;
+}
+@keyframes rain { from { background-position: 0 0, 0 0, 0 0; } to { background-position: 0 120px, 0 80px, 0 0; } }
+/* Sandstorm: short streaks and grains on two tiles blowing sideways, each exactly one tile per loop. */
+#weather.wx-sand {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cg stroke='%23c49a58' stroke-width='2' stroke-linecap='round' opacity='.75'%3E%3Cpath d='M6 10h16M58 24h20M30 44h14M92 52h18M100 8h12'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40'%3E%3Cg fill='%23b88c4c' opacity='.7'%3E%3Ccircle cx='10' cy='6' r='1.4'/%3E%3Ccircle cx='44' cy='18' r='1.2'/%3E%3Ccircle cx='68' cy='32' r='1.4'/%3E%3Ccircle cx='24' cy='30' r='1'/%3E%3Ccircle cx='58' cy='4' r='1'/%3E%3C/g%3E%3C/svg%3E"),
+    rgb(214 182 112 / .38);
+  background-size: 120px 60px, 80px 40px, auto;
+  animation: sand .7s linear infinite;
+}
+@keyframes sand { from { background-position: 0 0, 0 0, 0 0; } to { background-position: 120px 0, 80px 0, 0 0; } }
+.doll { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: bottom; image-rendering: pixelated; }
+.subbed .sprite { opacity: 0 !important; }
+.subbed .doll { display: block; }
+.spikes { position: absolute; left: 50%; bottom: -3%; transform: translateX(-50%); width: 64%; display: flex; flex-wrap: wrap; justify-content: center; gap: 3px 12px; pointer-events: none; }
+#own .spikes { bottom: 8%; }
+.spikes i { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 9px solid #4a4a54; filter: drop-shadow(0 1px 0 rgb(255 255 255 / .45)); }
+
+/* ---- the HP boxes */
+/* Positioned, so it paints over the (positioned) sprite box beside it: on a narrow stage the
+   platform reaches under the box. */
+.info {
+  position: relative; flex: 0 1 300px; min-width: 0; background: var(--box); color: #283038; font: 14px/1.6 var(--sans);
+  border: 3px solid var(--box-edge); border-radius: 10px 2px 10px 2px; padding: 7px 10px;
+  box-shadow: 3px 3px 0 rgb(0 0 0 / .18);
+}
+#own .info { margin-left: auto; margin-bottom: 12px; border-radius: 2px 10px 2px 10px; }
+.name { font-weight: 700; font-size: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 3px 6px; }
+.lv { font-size: 14px; color: #405060; }
+.hptext { font-size: 16px; text-align: right; }
+#foe .hptext { font-size: 14px; }
+.held, .known { font-size: 12px; color: #405060; }
+.chips { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 2px; }
+.chip { font-size: 10px; padding: 1px 4px; border-radius: 8px; background: #e8e8c8; border: 1px solid #b8b898; }
+.chip.up { color: #1f8a4c; } .chip.down { color: #c03828; }
+.party { display: flex; gap: 3px; margin-top: 5px; }
+
+/* ---- the dialog box */
+.dialog {
+  position: relative; margin-top: 8px; border: 4px solid var(--frame); border-radius: 10px; background: var(--frame);
+  padding: 3px; box-shadow: inset 0 0 0 2px #7fa6d8;
+}
+#say { margin: 0; min-height: 4em; padding: 10px 12px; border-radius: 6px; background: var(--frame-in); color: #283038; font: 19px/1.5 var(--sans); }
+#fieldinfo { display: block; padding: 4px 8px 1px; color: #dfe8f4; font: 12px var(--sans); min-height: 1em; }
+/* Watching: Pause holds the battle at the next event (app.js). */
+#pause { position: absolute; right: 8px; bottom: 3px; padding: 1px 12px; font-size: 12px; box-shadow: none; }
+
+/* ---- events */
+#banner {
+  position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none;
+  padding: 8px 14px; border-radius: 8px; border: 3px solid var(--box-edge); background: var(--box); color: #283038;
+  font: 700 18px var(--sans); opacity: 0; white-space: nowrap;
+}
+#banner.show { animation: banner .75s ease-out; }
+@keyframes banner { 0% { opacity: 0; transform: translate(-50%, -30%); } 15%, 70% { opacity: 1; transform: translate(-50%, -50%); } 100% { opacity: 0; } }
+.sprite.gone { opacity: 0; transform: translateY(40px); animation: none; }
+/* Switching. Out: a red flash, then shrinking into the ball. In: a ball drops, spins and
+   bursts (.throwball), and the Pokemon grows out of the flash, white to full colour. */
+.sprite.recall { transform-origin: 50% 90%; animation: recall .6s ease-in forwards; }
+@keyframes recall {
+  15%, 45% { transform: none; opacity: 1; filter: brightness(1.2) sepia(1) saturate(6) hue-rotate(-35deg); }
+  100% { transform: scale(.05); opacity: 0; filter: brightness(1.6) sepia(1) saturate(6) hue-rotate(-35deg); }
+}
+.throwball {
+  position: absolute; left: 50%; bottom: 18%; z-index: 2; width: 20px; height: 20px; margin-left: -10px; pointer-events: none;
+  border-radius: 50%; border: 2px solid #283038;
+  background: radial-gradient(circle at 50% 50%, #fff 0 18%, #283038 19% 27%, transparent 28%),
+    linear-gradient(#e04838 0 46%, #283038 46% 54%, #f8f8f8 54%);
+  animation: throwball .5s ease-in forwards;
+}
+@keyframes throwball {
+  0% { transform: translateY(-110px) rotate(0); opacity: 1; }
+  65% { transform: translateY(0) rotate(540deg); opacity: 1; }
+  78% { transform: translateY(-8px) rotate(600deg); }
+  100% { transform: scale(2.6); opacity: 0; filter: brightness(4); }
+}
+.sprite.enter { transform-origin: 50% 100%; animation: enter .45s ease-out .5s both; }  /* after the ball's burst */
+@keyframes enter {
+  0% { opacity: 0; transform: scale(0); filter: brightness(0) invert(1); }
+  60% { opacity: 1; transform: scale(1.08); filter: brightness(0) invert(1); }
+  100% { opacity: 1; transform: none; filter: none; }
+}
+.sprite.lunge-own { animation: lunge-own .4s ease-in-out; }
+.sprite.lunge-foe { animation: lunge-foe .4s ease-in-out; }
+@keyframes lunge-own { 50% { transform: translate(28px, -20px); } }
+@keyframes lunge-foe { 50% { transform: translate(-28px, 20px); } }
+.sprite.hit { animation: hit .5s; }
+@keyframes hit { 0%, 40%, 80% { opacity: .15; transform: translateX(-5px); } 20%, 60%, 100% { opacity: 1; transform: translateX(5px); } }
+.sprite.flash { animation: flash .45s; }
+@keyframes flash { 50% { opacity: .3; } }
+.sprite.glow { animation: glow .5s; }
+@keyframes glow { 50% { filter: brightness(1.6) drop-shadow(0 0 8px #48d080); } }
+.sprite.para { animation: para .8s; }
+@keyframes para { 0%, 100% { transform: none; filter: none; }
+  10%, 30%, 50%, 70% { transform: translateX(-3px); filter: sepia(1) saturate(4) hue-rotate(10deg) brightness(1.2); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); } }
+@media (prefers-reduced-motion: reduce) { .sprite, .fill, #banner, .throwball, #weather { animation: none !important; transition: none !important; } .throwball { display: none; } }
+
+/* ---- the end screen */
+#result {
+  position: absolute; inset: 0; z-index: 4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  background: rgb(248 248 216 / .85); font: 700 34px/1.3 var(--sans); color: #283038; text-shadow: 2px 2px 0 #fff; text-align: center;
+}
+#result.pop { animation: result .5s ease-out; }
+#result.lost { background: rgb(40 48 56 / .75); color: #f8f8f0; text-shadow: 2px 2px 0 #000; }
+@keyframes result { from { opacity: 0; transform: scale(1.1); } }

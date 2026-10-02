@@ -1,0 +1,74 @@
+{
+  "force": {
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "destiny_bond_catches_pursuit",
+  "note": "Pursuit intercepts the switch and KOs Gengar, Destiny Bond takes Houndoom with it, and both pre-chosen switches still happen. A chase on a switching target cannot miss, so nothing rolls accuracy.",
+  "p1": [
+    {
+      "ability": "levitate",
+      "item": "",
+      "level": 5,
+      "moves": [
+        "destinybond",
+        "shadowball",
+        "thunderbolt",
+        "icepunch"
+      ],
+      "species": "gengar"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "flashfire",
+      "item": "",
+      "level": 100,
+      "moves": [
+        "pursuit",
+        "sunnyday",
+        "crunch",
+        "fireblast"
+      ],
+      "species": "houndoom"
+    },
+    {
+      "ability": "waterabsorb",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "surf",
+        "icebeam",
+        "rest",
+        "sleeptalk"
+      ],
+      "species": "lapras"
+    }
+  ],
+  "turns": [
+    [
+      "move destinybond",
+      "move sunnyday"
+    ],
+    [
+      "switch 2",
+      "move pursuit"
+    ],
+    [
+      "switch 2",
+      "switch 2"
+    ]
+  ]
+}

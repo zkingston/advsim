@@ -1,0 +1,67 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "min"
+  },
+  "name": "a_perish_that_ends_it_leaves_protect",
+  "note": "Perish Song takes the last Pokemon on one side during the residual, while the Pokemon across has switched its own counter away and put up a Protect. The battle ends at that faint, so the Protect never runs its duration down",
+  "p1": [
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "sludgebomb",
+        "protect",
+        "painsplit",
+        "haze"
+      ],
+      "species": "weezing"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "perishsong",
+        "protect",
+        "shadowball",
+        "painsplit"
+      ],
+      "species": "misdreavus"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move sludgebomb",
+      "move perishsong"
+    ],
+    [
+      "move sludgebomb",
+      "switch 2"
+    ],
+    [
+      "move sludgebomb",
+      "switch 1"
+    ],
+    [
+      "move sludgebomb",
+      "move protect"
+    ]
+  ]
+}

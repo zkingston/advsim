@@ -1,0 +1,18 @@
+{
+  "force": {"accuracy": "hit", "crit": true, "damage_roll": "max"},
+  "name": "cloud_nine_in_first_slows_swift_swim",
+  "note": "Explosion takes both leads down in the rain. The replacements switch in the order the faster leaver's instaswitch was sorted, so Golduck's Cloud Nine is out before Kingdra, whose Swift Swim then has no rain to double its Speed; the two tie, and the sorts behind draw",
+  "p1": [
+    {"ability": "magmaarmor", "item": "leftovers", "moves": ["explosion", "protect", "earthquake", "fireblast"], "species": "camerupt"},
+    {"ability": "swiftswim", "item": "leftovers", "moves": ["surf", "raindance", "icebeam", "dragondance"], "species": "kingdra"}
+  ],
+  "p2": [
+    {"ability": "voltabsorb", "item": "leftovers", "moves": ["raindance", "thunderbolt", "protect", "hiddenpower"], "species": "jolteon"},
+    {"ability": "cloudnine", "item": "leftovers", "moves": ["surf", "raindance", "protect", "substitute"], "species": "golduck"}
+  ],
+  "turns": [
+    ["move protect", "move raindance"],
+    ["move explosion", "move raindance"],
+    ["switch 2", "switch 2"]
+  ]
+}

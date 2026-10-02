@@ -1,0 +1,72 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max",
+    "speedtie": 1
+  },
+  "name": "a_speed_tie_is_a_draw",
+  "note": "Two identical Jolteons tie on Speed, and the shuffle decides which one moves first",
+  "p1": [
+    {
+      "ability": "voltabsorb",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "thunderbolt",
+        "batonpass",
+        "substitute",
+        "bodyslam"
+      ],
+      "species": "jolteon"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "voltabsorb",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "thunderbolt",
+        "batonpass",
+        "substitute",
+        "bodyslam"
+      ],
+      "species": "jolteon"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move bodyslam",
+      "move bodyslam"
+    ],
+    [
+      "move bodyslam",
+      "move bodyslam"
+    ]
+  ]
+}

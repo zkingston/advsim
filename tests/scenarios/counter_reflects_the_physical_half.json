@@ -1,0 +1,75 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "min"
+  },
+  "name": "counter_reflects_the_physical_half",
+  "note": "Counter sends back twice a physical hit; Mirror Coat, which wants a special one, fails against the same attacker",
+  "p1": [
+    {
+      "ability": "naturalcure",
+      "item": "leftovers",
+      "level": 100,
+      "moves": [
+        "counter",
+        "mirrorcoat",
+        "softboiled",
+        "seismictoss"
+      ],
+      "species": "blissey"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 50,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    },
+    {
+      "ability": "waterabsorb",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "surf",
+        "icebeam",
+        "rest",
+        "sleeptalk"
+      ],
+      "species": "lapras"
+    }
+  ],
+  "turns": [
+    [
+      "move counter",
+      "move rockslide"
+    ],
+    [
+      "move mirrorcoat",
+      "move rockslide"
+    ],
+    [
+      "move softboiled",
+      "move protect"
+    ]
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "rain_changes_castform_and_the_rest",
+  "note": "Rain turns Castform into its water forme, doubles Swift Swim's Speed, makes Thunder certain, and halves what Synthesis gives back",
+  "p1": [
+    {
+      "ability": "forecast",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "raindance",
+        "thunder",
+        "icebeam",
+        "hiddenpower"
+      ],
+      "species": "castform"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "swiftswim",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "surf",
+        "synthesis",
+        "leechseed",
+        "protect"
+      ],
+      "species": "ludicolo"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move raindance",
+      "move surf"
+    ],
+    [
+      "move thunder",
+      "move synthesis"
+    ],
+    [
+      "move icebeam",
+      "move surf"
+    ]
+  ]
+}

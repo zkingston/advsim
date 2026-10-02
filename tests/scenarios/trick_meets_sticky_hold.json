@@ -1,0 +1,79 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "trick_meets_sticky_hold",
+  "note": "Trick bounces off Sticky Hold and leaves the Choice Band locked on its own holder; a switch clears the lock, and Knock Off then takes an item for good",
+  "p1": [
+    {
+      "ability": "synchronize",
+      "item": "choiceband",
+      "level": 80,
+      "moves": [
+        "trick",
+        "psychic",
+        "knockoff",
+        "encore"
+      ],
+      "species": "alakazam"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "stickyhold",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "shadowball",
+        "curse",
+        "painsplit",
+        "rest"
+      ],
+      "species": "muk"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move trick",
+      "move curse"
+    ],
+    [
+      "switch 2",
+      "move painsplit"
+    ],
+    [
+      "switch 1",
+      "move rest"
+    ],
+    [
+      "move knockoff",
+      "move rest"
+    ]
+  ]
+}

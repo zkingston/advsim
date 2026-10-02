@@ -1,0 +1,68 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "min",
+    "stall_stallmove": "yes"
+  },
+  "name": "a_protect_streak_lists_its_stall_first",
+  "note": "Perish Song takes the last Pokemon on one side while the Pokemon across protects for the second turn running. Its stall volatile was there before this Protect, so Showdown lists stall ahead of protect, and the tie shuffle between the two decides whether the faint check that ends the battle comes before Protect runs out",
+  "p1": [
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "sludgebomb",
+        "protect",
+        "painsplit",
+        "haze"
+      ],
+      "species": "weezing"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "perishsong",
+        "protect",
+        "shadowball",
+        "painsplit"
+      ],
+      "species": "misdreavus"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move sludgebomb",
+      "move perishsong"
+    ],
+    [
+      "move sludgebomb",
+      "switch 2"
+    ],
+    [
+      "move sludgebomb",
+      "move protect"
+    ],
+    [
+      "move sludgebomb",
+      "move protect"
+    ]
+  ]
+}

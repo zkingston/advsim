@@ -1,0 +1,79 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "trace_copies_truant",
+  "note": "Porygon2 traces Slaking's Truant and loafs every other turn; the counter is the Pokemon's, not the volatile's, so it survives a switch",
+  "p1": [
+    {
+      "ability": "trace",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "icebeam",
+        "recover",
+        "thunderbolt",
+        "curse"
+      ],
+      "species": "porygon2"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "truant",
+      "item": "choiceband",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "shadowball",
+        "earthquake",
+        "doubleedge"
+      ],
+      "species": "slaking"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move icebeam",
+      "move bodyslam"
+    ],
+    [
+      "move icebeam",
+      "move bodyslam"
+    ],
+    [
+      "switch 2",
+      "move bodyslam"
+    ],
+    [
+      "switch 1",
+      "move bodyslam"
+    ]
+  ]
+}

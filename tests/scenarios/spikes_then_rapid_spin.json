@@ -1,0 +1,87 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "spikes_then_rapid_spin",
+  "note": "Two layers of Spikes bite the Pokemon coming in, and Rapid Spin sweeps them off the other side",
+  "p1": [
+    {
+      "ability": "sturdy",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "spikes",
+        "rapidspin",
+        "explosion",
+        "hiddenpower"
+      ],
+      "species": "forretress"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "naturalcure",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "spikes",
+        "recover",
+        "icebeam",
+        "surf"
+      ],
+      "species": "starmie"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move spikes",
+      "move spikes"
+    ],
+    [
+      "move spikes",
+      "move spikes"
+    ],
+    [
+      "switch 2",
+      "switch 2"
+    ],
+    [
+      "move earthquake",
+      "move protect"
+    ],
+    [
+      "switch 1",
+      "switch 1"
+    ],
+    [
+      "move rapidspin",
+      "move recover"
+    ]
+  ]
+}

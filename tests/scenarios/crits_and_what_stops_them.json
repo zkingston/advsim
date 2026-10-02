@@ -1,0 +1,79 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": true,
+    "damage_roll": "max"
+  },
+  "name": "crits_and_what_stops_them",
+  "note": "A forced crit lands on a Pokemon that Battle Armor protects, Serene Grace doubles a secondary, and Color Change takes the type of what just hit it",
+  "p1": [
+    {
+      "ability": "serenegrace",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "psychic",
+        "wish",
+        "protect"
+      ],
+      "species": "jirachi"
+    },
+    {
+      "ability": "compoundeyes",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "sleeppowder",
+        "hiddenpower",
+        "psychic",
+        "protect"
+      ],
+      "species": "butterfree"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "battlearmor",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "rockslide",
+        "hiddenpower",
+        "protect",
+        "toxic"
+      ],
+      "species": "armaldo"
+    },
+    {
+      "ability": "colorchange",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "shadowball",
+        "protect",
+        "toxic"
+      ],
+      "species": "kecleon"
+    }
+  ],
+  "turns": [
+    [
+      "move bodyslam",
+      "move rockslide"
+    ],
+    [
+      "switch 2",
+      "switch 2"
+    ],
+    [
+      "move psychic",
+      "move bodyslam"
+    ],
+    [
+      "move sleeppowder",
+      "move shadowball"
+    ]
+  ]
+}

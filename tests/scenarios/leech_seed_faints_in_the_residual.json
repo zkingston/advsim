@@ -1,0 +1,75 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "max"
+  },
+  "name": "leech_seed_faints_in_the_residual",
+  "note": "Leech Seed takes the last of a Pokemon's HP during the residual, which pauses the turn for a replacement",
+  "p1": [
+    {
+      "ability": "naturalcure",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "leechseed",
+        "spore",
+        "psychic",
+        "recover"
+      ],
+      "species": "celebi"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "levitate",
+      "item": "",
+      "level": 5,
+      "moves": [
+        "shadowball",
+        "painsplit",
+        "thunderbolt",
+        "protect"
+      ],
+      "species": "misdreavus"
+    },
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    }
+  ],
+  "turns": [
+    [
+      "move leechseed",
+      "move shadowball"
+    ],
+    [
+      "move psychic",
+      "move shadowball"
+    ],
+    [
+      "move recover",
+      "switch 2"
+    ]
+  ]
+}

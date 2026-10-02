@@ -1,0 +1,78 @@
+/* Gen 3 styling: the battle scene, HP boxes and menus after Ruby/Sapphire/Emerald.
+   The scene keeps its own palette in both themes; the page around it follows the viewer's.
+   One sans-serif throughout. */
+:root {
+  --bg: #cfe3ee; --panel: #f8f8f0; --ink: #283038; --muted: #5a6470; --line: #9fb0bc; --accent: #3868c0;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --box: #f8f8d8; --box-edge: #404848; --hp-track: #50605a;
+  --hi: #48d080; --mid: #f8c030; --lo: #f05038;
+  --menu: #ffffff; --menu-edge: #506878; --frame: #3a5a86; --frame-in: #f8f8f8;
+  --mate: #e4eef8; --mate-edge: #9ab6d6; --mate-on: #fbead2; --mate-on-edge: #d6a466; --mate-ink: #243040; --mate-muted: #5a6878;
+  --stat-track: rgb(36 48 64 / .07); --stat-bar: rgb(56 104 192 / .3);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #18202c; --panel: #222b38; --ink: #eceae2; --muted: #9aa4b0; --line: #3a4656; --accent: #82a8ff;
+    --mate: #26344a; --mate-edge: #3e5678; --mate-on: #3e3224; --mate-on-edge: #8a6a3e; --mate-ink: #e8ecf2; --mate-muted: #a4b0c0;
+    --stat-track: rgb(255 255 255 / .05); --stat-bar: rgb(130 168 255 / .42); color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0; padding: 16px; color: var(--ink); font: 14px/1.45 system-ui, sans-serif;
+  background: var(--bg) repeating-linear-gradient(45deg, transparent 0 12px, rgb(255 255 255 / .035) 12px 24px);
+}
+header, main { max-width: 1100px; margin: 0 auto; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-bottom: 6px; font: 15px var(--sans); }
+#seed { color: var(--muted); }
+#loading { text-align: center; color: var(--muted); font: 15px var(--sans); }
+button, select {
+  font: 15px/1.4 var(--sans); padding: 8px 12px; border-radius: 6px; border: 2px solid var(--menu-edge);
+  background: var(--menu); color: #283038; cursor: pointer; box-shadow: 0 2px 0 var(--menu-edge);
+}
+button:active { transform: translateY(2px); box-shadow: none; }
+#new, #again { background: #e04838; border-color: #902820; color: #fff; box-shadow: 0 2px 0 #902820; }
+button:disabled { opacity: .45; cursor: default; }
+main { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 12px; margin-top: 10px; align-items: start; }
+@media (max-width: 760px) { main { grid-template-columns: 1fr; } }
+.left { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.arena, .record, .team { background: var(--panel); border: 3px solid var(--line); border-radius: 12px; padding: 12px; }
+
+/* ---- pieces shared by the scene and the team: Poke Balls, HP bars, type and status badges */
+.ball {
+  display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #283038; flex: none;
+  background: radial-gradient(circle at 50% 50%, #fff 0 18%, #283038 19% 27%, transparent 28%),
+    linear-gradient(#e04838 0 46%, #283038 46% 54%, #f8f8f8 54%);
+}
+.ball.st { filter: sepia(.6) saturate(2); }
+.ball.fnt { filter: grayscale(1); opacity: .45; }
+.ball.unknown { background: rgb(0 0 0 / .12); border-style: dashed; border-color: rgb(40 48 56 / .5); }
+.hprow { display: flex; align-items: center; gap: 4px; margin: 5px 0 3px; }
+.hpbar { flex: 1; height: 7px; border-radius: 4px; background: var(--hp-track); border: 1px solid #283830; overflow: hidden; }
+.fill { height: 100%; transition: width .55s ease-out, background-color .3s; }
+.fill.hi { background: var(--hi); } .fill.mid { background: var(--mid); } .fill.lo { background: var(--lo); }
+.status { font: 10px var(--sans); text-transform: uppercase; padding: 2px 4px; border-radius: 4px; background: #7a7a7a; color: #fff; }
+.status.brn { background: #e0702a; } .status.par { background: #c9a20f; } .status.psn, .status.tox { background: #94409a; }
+.status.slp { background: #7a7a7a; } .status.frz { background: #4ba3c3; }
+.type { font: 10px var(--sans); color: #fff; padding: 2px 4px; border-radius: 4px; text-shadow: 0 1px 0 rgb(0 0 0 / .35); }
+/* The move-category icon (Showdown's, Gen 4 style): 32x14, shown at its size or half on the cards. */
+.cat { width: 28px; height: 12px; image-rendering: pixelated; vertical-align: -1px; }
+
+/* ---- tooltips: one floating #tip for every [data-tip] (panels.js), so no panel clips it */
+.hover .tipped { text-decoration: underline dotted currentColor; text-underline-offset: 3px; cursor: help; }
+#tip {
+  position: absolute; z-index: 20; max-width: min(300px, 90vw); white-space: pre-line; pointer-events: none;
+  padding: 6px 9px; border-radius: 6px; border: 2px solid var(--box-edge); background: var(--box); color: #283038;
+  font: 13px/1.4 var(--sans); box-shadow: 2px 2px 0 rgb(0 0 0 / .2);
+}
+
+/* ---- About, a modal over everything */
+#about { max-width: min(520px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow-y: auto; padding: 18px 22px;
+  border: 3px solid var(--box-edge); border-radius: 10px; background: var(--box); color: #283038; font: 14px/1.5 var(--sans); }
+#about::backdrop { background: rgb(0 0 0 / .5); }
+#about h2 { margin: 0 0 8px; font-size: 20px; }
+#about h3 { margin: 14px 0 4px; font-size: 15px; }
+#about p, #about ul { margin: 6px 0; }
+#about ul { padding-left: 20px; }
+#about a { color: #2458b8; }
+#about form { margin-top: 12px; text-align: right; }

@@ -1,0 +1,75 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "sleep_turns": 3
+  },
+  "name": "sleep_clause_blocks_the_second",
+  "note": "Spore puts Flygon to sleep for the forced count; with it still asleep on the bench the clause refuses the second Spore",
+  "p1": [
+    {
+      "ability": "effectspore",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "spore",
+        "leechseed",
+        "hiddenpower",
+        "protect"
+      ],
+      "species": "breloom"
+    },
+    {
+      "ability": "immunity",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "bodyslam",
+        "rest",
+        "shadowball",
+        "earthquake"
+      ],
+      "species": "snorlax"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "levitate",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "earthquake",
+        "rockslide",
+        "protect",
+        "roar"
+      ],
+      "species": "flygon"
+    },
+    {
+      "ability": "waterabsorb",
+      "item": "leftovers",
+      "level": 80,
+      "moves": [
+        "surf",
+        "icebeam",
+        "rest",
+        "sleeptalk"
+      ],
+      "species": "lapras"
+    }
+  ],
+  "turns": [
+    [
+      "move spore",
+      "move earthquake"
+    ],
+    [
+      "move leechseed",
+      "switch 2"
+    ],
+    [
+      "move spore",
+      "move surf"
+    ]
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "force": {
+    "accuracy": "hit",
+    "crit": false,
+    "damage_roll": "min"
+  },
+  "name": "cloud_nine_down_on_the_way_in",
+  "note": "The last Pokemon on one side is a Cloud Nine holder that Spikes knocks out as it comes back in. faintMessages ends its ability first, and that End sorts the actives by the Speed they have now: the arrival's, which ties with the Pokemon across. The engine used to hand that sort the Speed of the Pokemon it replaced",
+  "p1": [
+    {
+      "ability": "cloudnine",
+      "item": "",
+      "moves": [
+        "substitute",
+        "surf",
+        "raindance",
+        "protect"
+      ],
+      "species": "golduck"
+    },
+    {
+      "ability": "rockhead",
+      "item": "",
+      "moves": [
+        "explosion",
+        "earthquake",
+        "rockslide",
+        "protect"
+      ],
+      "species": "golem"
+    }
+  ],
+  "p2": [
+    {
+      "ability": "cloudnine",
+      "item": "",
+      "moves": [
+        "spikes",
+        "raindance",
+        "protect",
+        "surf"
+      ],
+      "species": "golduck"
+    }
+  ],
+  "turns": [
+    [
+      "move substitute",
+      "move spikes"
+    ],
+    [
+      "move raindance",
+      "move spikes"
+    ],
+    [
+      "move raindance",
+      "move spikes"
+    ],
+    [
+      "switch 2",
+      "move raindance"
+    ],
+    [
+      "switch 1",
+      "move surf"
+    ],
+    [
+      "move substitute",
+      "move raindance"
+    ],
+    [
+      "switch 2",
+      "move raindance"
+    ],
+    [
+      "move explosion",
+      "move protect"
+    ],
+    [
+      "switch 1",
+      "pass"
+    ]
+  ]
+}

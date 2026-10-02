@@ -1,0 +1,17 @@
+{
+  "force": {"accuracy": "hit", "crit": false, "damage_roll": "min"},
+  "name": "a_transform_ties_the_speeds",
+  "note": "Copying the Pokemon across the field copies its Speed, so the sorts after the move tie and cost a draw each",
+  "p1": [
+    {"ability": "synchronize", "item": "leftovers", "level": 80, "moves": ["transform"], "species": "mew"},
+    {"ability": "immunity", "item": "leftovers", "level": 80, "moves": ["bodyslam", "rest", "shadowball", "earthquake"], "species": "snorlax"}
+  ],
+  "p2": [
+    {"ability": "cloudnine", "item": "leftovers", "level": 80, "moves": ["surf", "icebeam", "rest", "hiddenpower"], "species": "golduck"},
+    {"ability": "levitate", "item": "leftovers", "level": 80, "moves": ["earthquake", "rockslide", "protect", "roar"], "species": "flygon"}
+  ],
+  "turns": [
+    ["move transform", "move surf"],
+    ["move surf", "move surf"]
+  ]
+}

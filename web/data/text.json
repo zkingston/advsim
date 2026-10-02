@@ -1,0 +1,1004 @@
+{
+  "moves": {
+    "aerialace": {
+      "desc": "This move does not check accuracy.",
+      "category": "Physical",
+      "power": 60,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 20
+    },
+    "agility": {
+      "desc": "Raises the user's Speed by 2.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 30
+    },
+    "aromatherapy": {
+      "desc": "Cures the user's party of all status conditions.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "batonpass": {
+      "desc": "User switches, passing stat changes and more.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 40
+    },
+    "bellydrum": {
+      "desc": "User loses 50% max HP. Maximizes Attack.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "bodyslam": {
+      "desc": "30% chance to paralyze the target.",
+      "category": "Physical",
+      "power": 85,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "bonemerang": {
+      "desc": "Hits 2 times in one turn.",
+      "category": "Physical",
+      "power": 50,
+      "accuracy": 90,
+      "priority": 0,
+      "pp": 10
+    },
+    "brickbreak": {
+      "desc": "Destroys screens, even if the target is immune.",
+      "category": "Physical",
+      "power": 75,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "bulkup": {
+      "desc": "Raises the user's Attack and Defense by 1.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 20
+    },
+    "calmmind": {
+      "desc": "Raises the user's Sp. Atk and Sp. Def by 1.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 20
+    },
+    "charm": {
+      "desc": "Lowers the target's Attack by 2.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 20
+    },
+    "counter": {
+      "desc": "If hit by physical attack, returns double damage.",
+      "category": "Physical",
+      "power": 0,
+      "accuracy": 100,
+      "priority": -5,
+      "pp": 20
+    },
+    "crosschop": {
+      "desc": "High critical hit ratio.",
+      "category": "Physical",
+      "power": 100,
+      "accuracy": 80,
+      "priority": 0,
+      "pp": 5
+    },
+    "crunch": {
+      "desc": "20% chance to lower the target's Sp. Def by 1.",
+      "category": "Special",
+      "power": 80,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "curse": {
+      "desc": "Curses if Ghost, else -1 Spe, +1 Atk, +1 Def.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "destinybond": {
+      "desc": "If an opponent knocks out the user, it also faints.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "doubleedge": {
+      "desc": "Has 1/3 recoil.",
+      "category": "Physical",
+      "power": 120,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "dragonclaw": {
+      "desc": "No additional effect.",
+      "category": "Special",
+      "power": 80,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "dragondance": {
+      "desc": "Raises the user's Attack and Speed by 1.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 20
+    },
+    "drillpeck": {
+      "desc": "No additional effect.",
+      "category": "Physical",
+      "power": 80,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 20
+    },
+    "earthquake": {
+      "desc": "Hits adjacent Pokemon. Power doubles on Dig.",
+      "category": "Physical",
+      "power": 100,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 10
+    },
+    "encore": {
+      "desc": "The target repeats its last move for 3-6 turns.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 5
+    },
+    "endure": {
+      "desc": "User survives attacks this turn with at least 1 HP.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 4,
+      "pp": 10
+    },
+    "explosion": {
+      "desc": "Target's Def halved during damage. User faints.",
+      "category": "Physical",
+      "power": 250,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 5
+    },
+    "extremespeed": {
+      "desc": "Usually goes first.",
+      "category": "Physical",
+      "power": 80,
+      "accuracy": 100,
+      "priority": 1,
+      "pp": 5
+    },
+    "facade": {
+      "desc": "Power doubles if user is burn/poison/paralyzed.",
+      "category": "Physical",
+      "power": 70,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 20
+    },
+    "fireblast": {
+      "desc": "10% chance to burn the target.",
+      "category": "Special",
+      "power": 120,
+      "accuracy": 85,
+      "priority": 0,
+      "pp": 5
+    },
+    "firepunch": {
+      "desc": "10% chance to burn the target.",
+      "category": "Special",
+      "power": 75,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "flail": {
+      "desc": "More power the less HP the user has left.",
+      "category": "Physical",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "flamethrower": {
+      "desc": "10% chance to burn the target.",
+      "category": "Special",
+      "power": 95,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "focuspunch": {
+      "desc": "Fails if the user takes damage before it hits.",
+      "category": "Physical",
+      "power": 150,
+      "accuracy": 100,
+      "priority": -3,
+      "pp": 20
+    },
+    "gigadrain": {
+      "desc": "User recovers 50% of the damage dealt.",
+      "category": "Special",
+      "power": 60,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 5
+    },
+    "haze": {
+      "desc": "Eliminates all stat changes.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 30
+    },
+    "headbutt": {
+      "desc": "30% chance to make the target flinch.",
+      "category": "Physical",
+      "power": 70,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "healbell": {
+      "desc": "Cures the user's party of all status conditions.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "hiddenpower": {
+      "desc": "Varies in power and type based on the user's IVs.",
+      "category": "Physical",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "hydropump": {
+      "desc": "No additional effect.",
+      "category": "Special",
+      "power": 120,
+      "accuracy": 80,
+      "priority": 0,
+      "pp": 5
+    },
+    "hyperbeam": {
+      "desc": "User cannot move next turn.",
+      "category": "Physical",
+      "power": 150,
+      "accuracy": 90,
+      "priority": 0,
+      "pp": 5
+    },
+    "hypnosis": {
+      "desc": "Causes the target to fall asleep.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 60,
+      "priority": 0,
+      "pp": 20
+    },
+    "icebeam": {
+      "desc": "10% chance to freeze the target.",
+      "category": "Special",
+      "power": 95,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 10
+    },
+    "icepunch": {
+      "desc": "10% chance to freeze the target.",
+      "category": "Special",
+      "power": 75,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "irontail": {
+      "desc": "30% chance to lower the target's Defense by 1.",
+      "category": "Physical",
+      "power": 100,
+      "accuracy": 75,
+      "priority": 0,
+      "pp": 15
+    },
+    "knockoff": {
+      "desc": "Target's item is lost and it cannot obtain another.",
+      "category": "Special",
+      "power": 20,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 20
+    },
+    "leafblade": {
+      "desc": "High critical hit ratio.",
+      "category": "Special",
+      "power": 70,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "leechseed": {
+      "desc": "1/8 of target's HP is restored to user every turn.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 90,
+      "priority": 0,
+      "pp": 10
+    },
+    "lovelykiss": {
+      "desc": "Causes the target to fall asleep.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 75,
+      "priority": 0,
+      "pp": 10
+    },
+    "machpunch": {
+      "desc": "Usually goes first.",
+      "category": "Physical",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 1,
+      "pp": 30
+    },
+    "magicalleaf": {
+      "desc": "This move does not check accuracy.",
+      "category": "Special",
+      "power": 60,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 20
+    },
+    "meanlook": {
+      "desc": "Prevents the target from switching out.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "megahorn": {
+      "desc": "No additional effect.",
+      "category": "Physical",
+      "power": 120,
+      "accuracy": 85,
+      "priority": 0,
+      "pp": 10
+    },
+    "meteormash": {
+      "desc": "20% chance to raise the user's Attack by 1.",
+      "category": "Physical",
+      "power": 100,
+      "accuracy": 85,
+      "priority": 0,
+      "pp": 10
+    },
+    "milkdrink": {
+      "desc": "Heals the user by 50% of its max HP.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "mirrorcoat": {
+      "desc": "If hit by special attack, returns double damage.",
+      "category": "Special",
+      "power": 0,
+      "accuracy": 100,
+      "priority": -5,
+      "pp": 20
+    },
+    "moonlight": {
+      "desc": "Heals the user by a weather-dependent amount.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "morningsun": {
+      "desc": "Heals the user by a weather-dependent amount.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "mudshot": {
+      "desc": "100% chance to lower the target's Speed by 1.",
+      "category": "Physical",
+      "power": 55,
+      "accuracy": 95,
+      "priority": 0,
+      "pp": 15
+    },
+    "needlearm": {
+      "desc": "30% chance to make the target flinch.",
+      "category": "Special",
+      "power": 60,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "overheat": {
+      "desc": "Lowers the user's Sp. Atk by 2.",
+      "category": "Special",
+      "power": 140,
+      "accuracy": 90,
+      "priority": 0,
+      "pp": 5
+    },
+    "painsplit": {
+      "desc": "Shares HP of user and target equally.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 20
+    },
+    "perishsong": {
+      "desc": "All active Pokemon will faint in 3 turns.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "protect": {
+      "desc": "Prevents moves from affecting the user this turn.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 3,
+      "pp": 10
+    },
+    "psybeam": {
+      "desc": "10% chance to confuse the target.",
+      "category": "Special",
+      "power": 65,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 20
+    },
+    "psychic": {
+      "desc": "10% chance to lower the target's Sp. Def by 1.",
+      "category": "Special",
+      "power": 90,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 10
+    },
+    "psychoboost": {
+      "desc": "Lowers the user's Sp. Atk by 2.",
+      "category": "Special",
+      "power": 140,
+      "accuracy": 90,
+      "priority": 0,
+      "pp": 5
+    },
+    "pursuit": {
+      "desc": "Power doubles if the targeted foe is switching out.",
+      "category": "Special",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 20
+    },
+    "quickattack": {
+      "desc": "Usually goes first.",
+      "category": "Physical",
+      "power": 40,
+      "accuracy": 100,
+      "priority": 1,
+      "pp": 30
+    },
+    "raindance": {
+      "desc": "For 5 turns, heavy rain powers Water moves.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "rapidspin": {
+      "desc": "Frees user from hazards, binding, Leech Seed.",
+      "category": "Physical",
+      "power": 20,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 40
+    },
+    "razorleaf": {
+      "desc": "High critical hit ratio. Hits adjacent foes.",
+      "category": "Special",
+      "power": 55,
+      "accuracy": 95,
+      "priority": 0,
+      "pp": 25
+    },
+    "recover": {
+      "desc": "Heals the user by 50% of its max HP.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 20
+    },
+    "refresh": {
+      "desc": "User cures its burn, poison, or paralysis.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 20
+    },
+    "rest": {
+      "desc": "User sleeps 2 turns and restores HP and status.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "return": {
+      "desc": "Max 102 power at maximum Happiness.",
+      "category": "Physical",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 20
+    },
+    "reversal": {
+      "desc": "More power the less HP the user has left.",
+      "category": "Physical",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "roar": {
+      "desc": "Forces the target to switch to a random ally.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": -6,
+      "pp": 20
+    },
+    "rockslide": {
+      "desc": "30% chance to make the foe(s) flinch.",
+      "category": "Physical",
+      "power": 75,
+      "accuracy": 90,
+      "priority": 0,
+      "pp": 10
+    },
+    "sacredfire": {
+      "desc": "50% chance to burn the target. Thaws user.",
+      "category": "Special",
+      "power": 100,
+      "accuracy": 95,
+      "priority": 0,
+      "pp": 5
+    },
+    "seismictoss": {
+      "desc": "Does damage equal to the user's level.",
+      "category": "Physical",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 20
+    },
+    "selfdestruct": {
+      "desc": "Target's Def halved during damage. User faints.",
+      "category": "Physical",
+      "power": 200,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 5
+    },
+    "shadowball": {
+      "desc": "20% chance to lower the target's Sp. Def by 1.",
+      "category": "Physical",
+      "power": 80,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "signalbeam": {
+      "desc": "10% chance to confuse the target.",
+      "category": "Physical",
+      "power": 75,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "silverwind": {
+      "desc": "10% chance to raise all stats by 1 (not acc/eva).",
+      "category": "Physical",
+      "power": 60,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 5
+    },
+    "skyuppercut": {
+      "desc": "Can hit Pokemon using Bounce or Fly.",
+      "category": "Physical",
+      "power": 85,
+      "accuracy": 90,
+      "priority": 0,
+      "pp": 15
+    },
+    "slackoff": {
+      "desc": "Heals the user by 50% of its max HP.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "sleeppowder": {
+      "desc": "Causes the target to fall asleep.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 75,
+      "priority": 0,
+      "pp": 15
+    },
+    "sleeptalk": {
+      "desc": "User must be asleep. Uses another known move.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "sludgebomb": {
+      "desc": "30% chance to poison the target.",
+      "category": "Physical",
+      "power": 90,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 10
+    },
+    "softboiled": {
+      "desc": "Heals the user by 50% of its max HP.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "solarbeam": {
+      "desc": "Charges turn 1. Hits turn 2. No charge in sunlight.",
+      "category": "Special",
+      "power": 120,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 10
+    },
+    "spiderweb": {
+      "desc": "Prevents the target from switching out.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "spikes": {
+      "desc": "Hurts grounded foes on switch-in. Max 3 layers.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 20
+    },
+    "spore": {
+      "desc": "Causes the target to fall asleep.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "steelwing": {
+      "desc": "10% chance to raise the user's Defense by 1.",
+      "category": "Physical",
+      "power": 70,
+      "accuracy": 90,
+      "priority": 0,
+      "pp": 25
+    },
+    "struggle": {
+      "desc": "User loses 1/4 the HP lost by the target.",
+      "category": "Physical",
+      "power": 50,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 1
+    },
+    "stunspore": {
+      "desc": "Paralyzes the target.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 75,
+      "priority": 0,
+      "pp": 30
+    },
+    "substitute": {
+      "desc": "User takes 1/4 its max HP to put in a substitute.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "sunnyday": {
+      "desc": "For 5 turns, intense sunlight powers Fire moves.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "superpower": {
+      "desc": "Lowers the user's Attack and Defense by 1.",
+      "category": "Physical",
+      "power": 120,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 5
+    },
+    "surf": {
+      "desc": "Hits foes. Power doubles against Dive.",
+      "category": "Special",
+      "power": 95,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "swordsdance": {
+      "desc": "Raises the user's Attack by 2.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 30
+    },
+    "synthesis": {
+      "desc": "Heals the user by a weather-dependent amount.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 5
+    },
+    "thunder": {
+      "desc": "30% chance to paralyze. Can't miss in rain.",
+      "category": "Special",
+      "power": 120,
+      "accuracy": 70,
+      "priority": 0,
+      "pp": 10
+    },
+    "thunderbolt": {
+      "desc": "10% chance to paralyze the target.",
+      "category": "Special",
+      "power": 95,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "thunderpunch": {
+      "desc": "10% chance to paralyze the target.",
+      "category": "Special",
+      "power": 75,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "thunderwave": {
+      "desc": "Paralyzes the target.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 20
+    },
+    "toxic": {
+      "desc": "Badly poisons the target.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 85,
+      "priority": 0,
+      "pp": 10
+    },
+    "transform": {
+      "desc": "Copies target's stats, moves, types, and Ability.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "trick": {
+      "desc": "User switches its held item with the target's.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 10
+    },
+    "volttackle": {
+      "desc": "Has 1/3 recoil.",
+      "category": "Special",
+      "power": 120,
+      "accuracy": 100,
+      "priority": 0,
+      "pp": 15
+    },
+    "whirlwind": {
+      "desc": "Forces the target to switch to a random ally.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 100,
+      "priority": -6,
+      "pp": 20
+    },
+    "willowisp": {
+      "desc": "Burns the target.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 75,
+      "priority": 0,
+      "pp": 15
+    },
+    "wish": {
+      "desc": "Next turn, heals 50% of the recipient's max HP.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    },
+    "wrap": {
+      "desc": "Traps and damages the target for 2-5 turns.",
+      "category": "Physical",
+      "power": 15,
+      "accuracy": 85,
+      "priority": 0,
+      "pp": 20
+    },
+    "yawn": {
+      "desc": "Puts the target to sleep after 1 turn.",
+      "category": "Status",
+      "power": 0,
+      "accuracy": 0,
+      "priority": 0,
+      "pp": 10
+    }
+  },
+  "abilities": {
+    "airlock": "While this Pokemon is active, the effects of weather conditions are disabled.",
+    "arenatrap": "Prevents opposing Pokemon from choosing to switch out unless they are airborne.",
+    "battlearmor": "This Pokemon cannot be struck by a critical hit.",
+    "blaze": "At 1/3 or less of its max HP, this Pokemon's Fire-type attacks have 1.5x power.",
+    "chlorophyll": "If Sunny Day is active, this Pokemon's Speed is doubled.",
+    "clearbody": "Prevents other Pokemon from lowering this Pokemon's stat stages.",
+    "cloudnine": "While this Pokemon is active, the effects of weather conditions are disabled.",
+    "colorchange": "This Pokemon's type changes to the type of a move it's hit by, unless it has the type.",
+    "compoundeyes": "This Pokemon's moves have their accuracy multiplied by 1.3.",
+    "cutecharm": "1/3 chance of infatuating Pokemon of the opposite gender if they make contact.",
+    "drizzle": "On switch-in, this Pokemon summons Rain Dance.",
+    "drought": "On switch-in, this Pokemon summons Sunny Day.",
+    "earlybird": "This Pokemon's sleep counter drops by 2 instead of 1.",
+    "effectspore": "10% chance of poison/paralysis/sleep on others making contact with this Pokemon.",
+    "flamebody": "1/3 chance a Pokemon making contact with this Pokemon will be burned.",
+    "flashfire": "This Pokemon's Fire attacks do 1.5x damage if hit by one Fire move; Fire immunity.",
+    "forecast": "Castform's type changes to the current weather condition's type, except Sandstorm.",
+    "guts": "If this Pokemon is statused, its Attack is 1.5x; ignores burn halving physical damage.",
+    "hugepower": "This Pokemon's Attack is doubled.",
+    "hustle": "This Pokemon's Attack is 1.5x and accuracy of its physical attacks is 0.8x.",
+    "hypercutter": "Prevents other Pokemon from lowering this Pokemon's Attack stat stage.",
+    "immunity": "This Pokemon cannot be poisoned. Gaining this Ability while poisoned cures it.",
+    "innerfocus": "This Pokemon cannot be made to flinch.",
+    "insomnia": "This Pokemon cannot fall asleep. Gaining this Ability while asleep cures it.",
+    "intimidate": "On switch-in, this Pokemon lowers the Attack of opponents by 1 stage.",
+    "keeneye": "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage.",
+    "levitate": "This Pokemon is immune to Ground.",
+    "limber": "This Pokemon cannot be paralyzed. Gaining this Ability while paralyzed cures it.",
+    "liquidooze": "This Pokemon damages those draining HP from it for as much as they would heal.",
+    "magmaarmor": "This Pokemon cannot be frozen. Gaining this Ability while frozen cures it.",
+    "magnetpull": "Prevents Steel-type Pokemon from choosing to switch out, other than this Pokemon.",
+    "marvelscale": "If this Pokemon has a non-volatile status condition, its Defense is multiplied by 1.5.",
+    "minus": "If an active Pokemon has the Plus Ability, this Pokemon's Sp. Atk is 1.5x.",
+    "naturalcure": "This Pokemon has its non-volatile status condition cured when it switches out.",
+    "oblivious": "This Pokemon cannot be infatuated. Gaining this Ability while infatuated cures it.",
+    "overgrow": "At 1/3 or less of its max HP, this Pokemon's Grass-type attacks have 1.5x power.",
+    "owntempo": "This Pokemon cannot be confused.",
+    "pickup": "No competitive use.",
+    "plus": "If an active Pokemon has the Minus Ability, this Pokemon's Sp. Atk is 1.5x.",
+    "poisonpoint": "1/3 chance a Pokemon making contact with this Pokemon will be poisoned.",
+    "pressure": "If this Pokemon is the target of a move, that move loses one additional PP.",
+    "purepower": "This Pokemon's Attack is doubled.",
+    "rockhead": "This Pokemon does not take recoil damage besides Struggle and crash damage.",
+    "roughskin": "Pokemon making contact with this Pokemon lose 1/16 of their max HP.",
+    "runaway": "No competitive use.",
+    "sandstream": "On switch-in, this Pokemon summons Sandstorm.",
+    "sandveil": "If Sandstorm is active, this Pokemon's evasiveness is 1.25x; immunity to Sandstorm.",
+    "serenegrace": "This Pokemon's moves have their secondary effect chance doubled.",
+    "shadowtag": "Prevents opposing Pokemon from choosing to switch out.",
+    "shedskin": "This Pokemon has a 33% chance to have its status cured at the end of each turn.",
+    "shellarmor": "This Pokemon cannot be struck by a critical hit.",
+    "shielddust": "This Pokemon is not affected by the secondary effect of another Pokemon's attack.",
+    "soundproof": "This Pokemon is immune to sound-based moves, including Heal Bell.",
+    "speedboost": "This Pokemon's Speed is raised 1 stage at the end of each full turn on the field.",
+    "static": "1/3 chance a Pokemon making contact with this Pokemon will be paralyzed.",
+    "stickyhold": "This Pokemon cannot lose its held item due to another Pokemon's Ability or attack.",
+    "sturdy": "OHKO moves fail when used against this Pokemon.",
+    "suctioncups": "This Pokemon cannot be forced to switch out by another Pokemon's attack or item.",
+    "swarm": "At 1/3 or less of its max HP, this Pokemon's Bug-type attacks have 1.5x power.",
+    "swiftswim": "If Rain Dance is active, this Pokemon's Speed is doubled.",
+    "synchronize": "If another Pokemon burns/poisons/paralyzes this Pokemon, it also gets that status.",
+    "thickfat": "Fire-/Ice-type moves against this Pokemon deal damage with a halved Sp. Atk stat.",
+    "torrent": "At 1/3 or less of its max HP, this Pokemon's Water-type attacks have 1.5x power.",
+    "trace": "On switch-in, or when it can, this Pokemon copies a random adjacent foe's Ability.",
+    "truant": "This Pokemon skips every other turn instead of using a move.",
+    "vitalspirit": "This Pokemon cannot fall asleep. Gaining this Ability while asleep cures it.",
+    "voltabsorb": "This Pokemon heals 1/4 its max HP when hit by a damaging Electric move; immunity.",
+    "waterabsorb": "This Pokemon heals 1/4 of its max HP when hit by Water moves; Water immunity.",
+    "waterveil": "This Pokemon cannot be burned. Gaining this Ability while burned cures it.",
+    "whitesmoke": "Prevents other Pokemon from lowering this Pokemon's stat stages.",
+    "wonderguard": "This Pokemon is only damaged by supereffective moves and indirect damage."
+  },
+  "items": {
+    "choiceband": "Holder's Attack is 1.5x, but it can only select the first move it executes.",
+    "leftovers": "At the end of every turn, holder restores 1/16 of its max HP.",
+    "liechiberry": "Raises holder's Attack by 1 stage when at 1/4 max HP or less. Single use.",
+    "lightball": "If held by a Pikachu, its Special Attack is doubled.",
+    "lumberry": "Holder cures itself if it has a non-volatile status or is confused. Single use.",
+    "petayaberry": "Raises holder's Sp. Atk by 1 stage when at 1/4 max HP or less. Single use.",
+    "salacberry": "Raises holder's Speed by 1 stage when at 1/4 max HP or less. Single use.",
+    "silkscarf": "Holder's Normal-type attacks have 1.1x power.",
+    "souldew": "If held by a Latias or a Latios, its Sp. Atk and Sp. Def are 1.5x.",
+    "stick": "If held by a Farfetch’d, its critical hit ratio is raised by 2 stages.",
+    "thickclub": "If held by a Cubone or a Marowak, its Attack is doubled.",
+    "twistedspoon": "Holder's Psychic-type attacks have 1.1x power.",
+    "whiteherb": "Restores all lowered stat stages to 0 when one is less than 0. Single use."
+  }
+}
